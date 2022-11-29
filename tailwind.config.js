@@ -13,6 +13,12 @@ module.exports = {
       gray: '#828282',
       blue: '#007AC8',
     },
+    extend: {
+      fontFamily: {
+        robot: ['var(--roboto-font)'],
+        sans: ['Hiragino Sans'],
+      },
+    },
   },
-  plugins: [],
+  plugins: [require('@tailwindcss/line-clamp')],
 }
