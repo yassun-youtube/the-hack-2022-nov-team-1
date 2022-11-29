@@ -1,10 +1,9 @@
-import { Button } from '@components/atoms/Button/button'
+import TopPageNewsSection from '@components/organisms/TopPageNewsSection'
 
 export default function Home() {
   return (
     <>
-      <Button label={'aaa'} />
-      <h1 className='text-3xl font-black underline'>Hello world!</h1>
+      <TopPageNewsSection />
     </>
   )
 }
