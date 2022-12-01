@@ -1,5 +1,5 @@
 type ParagraphComponent = {
-  paragraph: string
+  paragraph?: string
 }
 
 const ParagraphComponent = ({ paragraph }: ParagraphComponent) => {

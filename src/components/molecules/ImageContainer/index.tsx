@@ -5,7 +5,7 @@ import ParagraphComponent from '@components/atoms/Paragraph'
 type ImageContainer = {
   src: string
   alt: string
-  paragraph: string
+  paragraph?: string
   url: string
 }
 
@@ -18,9 +18,11 @@ const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
           alt={alt}
         />
       </Link>
-      <Link href={url}>
-        <ParagraphComponent paragraph={paragraph} />
-      </Link>
+      {paragraph ?? (
+        <Link href={url}>
+          <ParagraphComponent paragraph={paragraph} />
+        </Link>
+      )}
     </div>
   )
 }
