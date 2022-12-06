@@ -10,8 +10,10 @@ const ImageComponent = ({ src, alt }: ImageComponent) => {
     <Image
       src={src}
       alt={alt}
-      width={'375'}
-      height={'268'}
+      width={375}
+      height={268}
+      priority
+      style={{ width: '374px' }}
     />
   )
 }
