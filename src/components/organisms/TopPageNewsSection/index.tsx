@@ -1,8 +1,14 @@
 'use client'
 import ImageContainer from '@components/molecules/ImageContainer'
 import ListItemContainer from '@components/molecules/ListItemContainer'
+import { newsItem } from 'types/newsItem'
 
-const TopPageNewsSection = () => {
+type TopPageNewsSectionProps = {
+  featureNewsItem: newsItem[]
+  newsItems: newsItem[]
+}
+
+const TopPageNewsSection = ({ featureNewsItem, newsItems }: TopPageNewsSectionProps) => {
   return (
     <section className={'flex justify-center'}>
       <div className={'my-24 h-[409px] w-[680px] bg-white'}>
@@ -14,31 +20,18 @@ const TopPageNewsSection = () => {
           <div className={'mt-6 flex'}>
             <ImageContainer
               url={'news/meta'}
-              paragraph={
-                'アイルランドの監視当局、Metaに2億6500万ユーロの制裁金、最新のプライバシー事件で'
-              }
-              alt={''}
-              src={
-                'https://storage.googleapis.com/afs-prod/media/867e7ddc5d684e5fbb41fc8539fe5bd9/400.jpeg'
-              }
+              paragraph={featureNewsItem[0].title}
+              alt={featureNewsItem[0].description}
+              src={featureNewsItem[0].imageSrc}
             />
             <ul className={'ml-10 flex-col'}>
-              <ListItemContainer
-                url={'news/mask1'}
-                title={'マスク氏、Twitterのプレミアムサービス再開を計画、再び'}
-              />
-              <ListItemContainer
-                url={'news/mask2'}
-                title={'マスク、Twitterのアカウント停止に「恩赦」を認めると発言'}
-              />
-              <ListItemContainer
-                url={'news/fcc'}
-                title={'米FCC、HuaweiとZTEの中国製ハイテク製品の販売・輸入を禁止に'}
-              />
-              <ListItemContainer
-                url={'news/wright'}
-                title={'部外者のために保守系メディアを読み解くライティング'}
-              />
+              {newsItems.map((newsItem) => (
+                <ListItemContainer
+                  key={newsItem.id}
+                  url={'news/mask1'}
+                  title={newsItem.title}
+                />
+              ))}
             </ul>
           </div>
         </div>
