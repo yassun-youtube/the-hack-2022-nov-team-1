@@ -1,13 +1,18 @@
+import TimeAgo from 'javascript-time-ago'
+import en from 'javascript-time-ago/locale/en'
 import Link from 'next/link'
 
+TimeAgo.addDefaultLocale(en)
+const timeAgo = new TimeAgo('en-US')
+
 type TextBarListItem = {
-  text: string
-  time: string
+  title: string
+  publishedAt: string
   isVerticalLine?: boolean
   url: string
 }
 
-const TextBarListItem = ({ text, time, isVerticalLine = true, url }: TextBarListItem) => {
+const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: TextBarListItem) => {
   return (
     <li
       className={`mr-2 max-w-[219px] ${
@@ -15,9 +20,11 @@ const TextBarListItem = ({ text, time, isVerticalLine = true, url }: TextBarList
       } py-14 pr-5`}>
       <Link href={url}>
         <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>
-          {text}
+          {title}
         </p>
-        <span className={'text-sm font-light leading-4'}>{time}</span>
+        <span className={'text-sm font-light leading-4'}>
+          {timeAgo.format(new Date(publishedAt))}
+        </span>
       </Link>
     </li>
   )
