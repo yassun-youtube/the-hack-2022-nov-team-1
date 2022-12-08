@@ -12,15 +12,17 @@ type LabelList = {
 
 export const FooterLabelList = ({ label, content }: LabelList) => {
   return (
-    <dl>
+    <li>
       <FooterNavLabel text={label} />
-      {content.map((item, index) => (
-        <FooterNavLinkItem
-          key={index}
-          link={item.link}
-          text={item.text}
-        />
-      ))}
-    </dl>
+      <ul>
+        {content.map((item, index) => (
+          <FooterNavLinkItem
+            key={index}
+            link={item.link}
+            text={item.text}
+          />
+        ))}
+      </ul>
+    </li>
   )
 }

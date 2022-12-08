@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import React from 'react'
 
 type FooterNavLabelType = {
   text: string
@@ -11,15 +10,13 @@ export type FooterNavLinkItemType = {
 }
 
 export const FooterNavLabel = ({ text }: FooterNavLabelType) => {
-  return <dt className='text-2xl text-white'>{text}</dt>
+  return <p className='text-2xl text-white'>{text}</p>
 }
 
 export const FooterNavLinkItem = ({ link, text }: FooterNavLinkItemType) => {
   return (
-    <dd
-      className='mt-2 text-sm text-white'
-    >
+    <li className='mt-2 text-sm text-white'>
       <Link href={link}>{text}</Link>
-    </dd>
+    </li>
   )
 }

@@ -1,5 +1,5 @@
 type TextComponent = {
-  textColor?: 'text-blue'
+  textColor?: 'text-blue' | 'text-white'
   textSize?: 'text-2xl' | 'text-xl'
   children?: React.ReactNode
 }
