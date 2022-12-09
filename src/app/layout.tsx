@@ -2,7 +2,6 @@ import '../styles/dist.css'
 import { Roboto } from '@next/font/google'
 import Footer from '@components/organisms/Footer'
 
-
 const roboto = Roboto({
   variable: '--roboto-font',
   weight: '100',

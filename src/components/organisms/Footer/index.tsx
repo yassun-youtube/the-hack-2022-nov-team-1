@@ -1,7 +1,6 @@
 import Link from 'next/link'
 import { FooterNavLabel } from '@components/atoms/FooterNav'
-import SnsIcon from '@components/atoms/FooterNav/snsIcon'
-import StoreIcon from '@components/atoms/FooterNav/storeIcon'
+import Icon from '@components/atoms/FooterNav/Icon'
 import Text from '@components/atoms/Text'
 import { FooterLabelList } from '@components/molecules/FooterLabelList'
 
@@ -109,14 +108,14 @@ const Footer = () => {
             <Text textColor='text-white'>
               Content with the definitive source for global and local news
             </Text>
-            <StoreIcon
+            <Icon
               link='https://www.apple.com/jp/app-store/'
               src='/app-store.png'
               alt='App Store'
               width={250}
               height={50}
             />
-            <StoreIcon
+            <Icon
               link='https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-jp-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700012434507668_creativeid_416444421498_device_c&gclid=CjwKCAiAs8acBhA1EiwAgRFdw9Z-kN4Ry70MbQCyPK1mZL60xUB07ptf33d_o0-PiY8i4ZwS_MgT5xoCz2kQAvD_BwE&gclsrc=aw.ds'
               src='/google-play.png'
               alt='Google Play'
@@ -128,14 +127,15 @@ const Footer = () => {
             <FooterNavLabel text='FOLLOW APP' />
             <ul className='flex items-center gap-1 pt-2'>
               {SNS.map((el, index) => (
-                <SnsIcon
-                  key={index}
-                  link={el.link}
-                  src={el.imgPath}
-                  alt={el.alt}
-                  width={50}
-                  height={50}
-                />
+                <li key={index}>
+                  <Icon
+                    link={el.link}
+                    src={el.imgPath}
+                    alt={el.alt}
+                    width={50}
+                    height={50}
+                  />
+                </li>
               ))}
             </ul>
           </li>

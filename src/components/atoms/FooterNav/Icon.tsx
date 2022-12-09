@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-type StoreIcon = {
+type Icon = {
   link: string
   src: string
   alt: string
@@ -9,7 +9,7 @@ type StoreIcon = {
   height: number
 }
 
-const StoreIcon = ({ link, src, alt, width, height }: StoreIcon) => {
+const Icon = ({ link, src, alt, width, height }: Icon) => {
   return (
     <Link
       href={link}
@@ -25,4 +25,4 @@ const StoreIcon = ({ link, src, alt, width, height }: StoreIcon) => {
   )
 }
 
-export default StoreIcon
+export default Icon
