@@ -101,7 +101,7 @@ const Footer = () => {
             <FooterLabelList
               key={index}
               label={el.label}
-              content={el.content}
+              contents={el.content}
             />
           ))}
           <li className='w-[320px]'>

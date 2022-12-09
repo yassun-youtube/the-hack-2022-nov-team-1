@@ -7,15 +7,15 @@ import {
 
 type LabelList = {
   label: string
-  content: FooterNavLinkItemType[]
+  contents: FooterNavLinkItemType[]
 }
 
-export const FooterLabelList = ({ label, content }: LabelList) => {
+export const FooterLabelList = ({ label, contents }: LabelList) => {
   return (
     <li>
       <FooterNavLabel text={label} />
       <ul>
-        {content.map((item, index) => (
+        {contents.map((item, index) => (
           <FooterNavLinkItem
             key={index}
             link={item.link}
