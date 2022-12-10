@@ -1,4 +1,5 @@
 import ScrollManagement from '@components/container/scrollManagement'
+import HeaderSection from '@components/organisms/HeaderSection'
 import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
 import TopPageNewsSection from '@components/organisms/TopPageNewsSection'
@@ -8,6 +9,7 @@ export default async function Home() {
   const news = await getLatestNews()
   return (
     <>
+      <HeaderSection />
       <ScrollManagement />
       <HeroSection
         newsItem={news[0]}

@@ -1,3 +1,5 @@
+import { HeaderNavType } from 'types/header'
+
 export const LIST_TEXT_ARR = [
   {
     label: 'AP NEWS',
@@ -82,5 +84,24 @@ export const SNS = [
     link: 'https://www.instagram.com/',
     imgPath: '/instagram.webp',
     alt: 'twitter',
+  },
+]
+
+export const HEADER_NAV: HeaderNavType[] = [
+  {
+    text: 'Technology',
+    link: '/technology',
+  },
+  {
+    text: 'Science',
+    link: '/science',
+  },
+  {
+    text: 'Business',
+    link: '/business',
+  },
+  {
+    text: 'Politics',
+    link: '/politics',
   },
 ]
