@@ -16,9 +16,9 @@ const SideNewsItem = ({label, text, url}: SideNewsItem) => {
     >
       <div className={'relative'}>
         <div className={'absolute left-0 top-0'}>
-          <SideNewsLabel label={label}></SideNewsLabel>
+          <SideNewsLabel label={label} />
         </div>
-        <SideNewsText text={text}></SideNewsText>
+        <SideNewsText text={text} />
       </div>
     </Link>
   )
