@@ -1,10 +1,10 @@
 'use client'
-import { useLayoutEffect } from 'react'
+import { useEffect } from 'react'
 import { useScrollStore } from '@store/store'
 
 const ScrollManagement = () => {
   const { scrollAmount, setScrollAmount } = useScrollStore()
-  useLayoutEffect(() => {
+  useEffect(() => {
     if (location.href === 'http://localhost:3000/') {
       window.scrollTo({ top: scrollAmount })
     }
