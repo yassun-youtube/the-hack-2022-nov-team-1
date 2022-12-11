@@ -8,12 +8,9 @@ type SideNewsItem = {
   url: string
 }
 
-const SideNewsItem = ({label, text, url}: SideNewsItem) => {
+const SideNewsItem = ({ label, text, url }: SideNewsItem) => {
   return (
-    <Link
-      href={url}
-      prefetch={false}
-    >
+    <Link href={url}>
       <div className={'relative'}>
         <div className={'absolute left-0 top-0'}>
           <SideNewsLabel label={label} />

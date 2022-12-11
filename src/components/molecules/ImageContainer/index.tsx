@@ -12,18 +12,14 @@ type ImageContainer = {
 const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
   return (
     <div className={'flex-col'}>
-      <Link
-        href={url}
-        prefetch={false}>
+      <Link href={url}>
         <ImageComponent
           src={src}
           alt={alt}
         />
       </Link>
       {paragraph ?? (
-        <Link
-          href={url}
-          prefetch={false}>
+        <Link href={url}>
           <ParagraphComponent paragraph={paragraph} />
         </Link>
       )}

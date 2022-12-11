@@ -8,9 +8,7 @@ type ListItemContainer = {
 
 const ListItemContainer = ({ title, url }: ListItemContainer) => {
   return (
-    <Link
-      href={url}
-      prefetch={false}>
+    <Link href={url}>
       <ListTextComponent>{title}</ListTextComponent>
       <hr className={'mb-4'} />
     </Link>
