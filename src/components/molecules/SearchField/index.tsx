@@ -12,7 +12,7 @@ const SearchField = () => {
       <MagnifyingGlassIcon className='absolute float-right my-auto h-5 pl-2' />
       <input
         type='search'
-        className='z-10 float-right h-9 w-9 cursor-pointer bg-gray/0 outline-none transition-all duration-200 ease-linear focus:w-full focus:cursor-text focus:pl-10 focus:pr-4 focus:ease-out'
+        className='z-10 float-right h-9 w-9 cursor-pointer bg-gray/0 outline-none transition-all duration-200 ease-out focus:w-56 focus:cursor-text focus:pl-10 focus:pr-4 focus:ease-out'
         onBlur={() => formRef.current?.reset()}
       />
     </form>
