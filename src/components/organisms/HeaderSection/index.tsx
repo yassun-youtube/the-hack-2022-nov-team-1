@@ -1,5 +1,5 @@
-import { MagnifyingGlassCircleIcon } from '@heroicons/react/24/outline'
 import HeaderNavContainer from '@components/molecules/HeaderNavContainer'
+import SearchField from '@components/molecules/SearchField'
 import { HEADER_NAV } from 'constant/constant'
 
 const HeaderSection = () => {
@@ -18,10 +18,7 @@ const HeaderSection = () => {
             />
           ))}
         </ul>
-        <div className='flex items-center'>
-          <span className='mr-5 text-sm'>Listen</span>
-          <MagnifyingGlassCircleIcon className='h-11 text-gray' />
-        </div>
+        <SearchField />
       </div>
     </header>
   )

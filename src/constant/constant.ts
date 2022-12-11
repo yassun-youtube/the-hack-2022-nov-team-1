@@ -90,18 +90,18 @@ export const SNS = [
 export const HEADER_NAV: HeaderNavType[] = [
   {
     text: 'Technology',
-    link: '/technology',
+    link: '/search/technology',
   },
   {
     text: 'Science',
-    link: '/science',
+    link: '/search/science',
   },
   {
     text: 'Business',
-    link: '/business',
+    link: '/search/business',
   },
   {
     text: 'Politics',
-    link: '/politics',
+    link: '/search/politics',
   },
 ]

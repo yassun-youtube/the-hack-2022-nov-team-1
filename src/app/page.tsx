@@ -9,8 +9,8 @@ export default async function Home() {
   const news = await getLatestNews()
   return (
     <>
-      <HeaderSection />
       <ScrollManagement />
+      <HeaderSection />
       <HeroSection
         newsItem={news[0]}
         sideNewsItems={news.slice(1, 5)}
