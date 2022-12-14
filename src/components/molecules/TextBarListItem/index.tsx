@@ -1,9 +1,5 @@
-import TimeAgo from 'javascript-time-ago'
-import en from 'javascript-time-ago/locale/en'
 import Link from 'next/link'
-
-TimeAgo.addDefaultLocale(en)
-const timeAgo = new TimeAgo('en-US')
+import timeAgoUtil from '@libs/timeAgo'
 
 type TextBarListItem = {
   title: string
@@ -22,9 +18,7 @@ const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: Tex
         <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>
           {title}
         </p>
-        <span className={'text-sm font-light leading-4'}>
-          {timeAgo.format(new Date(publishedAt))}
-        </span>
+        <span className={'text-sm font-light leading-4'}>{timeAgoUtil(publishedAt)}</span>
       </Link>
     </li>
   )

@@ -1,11 +1,15 @@
-'use client'
-import { useLayoutEffect } from 'react'
+import NewsDetailPageClient from '@components/templates/NewsDetailPage'
+import { getSpecificNews } from '@libs/connectCms'
+import { newsItem } from 'types/newsItem'
 
-const Page = () => {
-  useLayoutEffect(() => {
-    window.scrollTo({ top: 0 })
-  }, [])
-  return <></>
+type NewsDetailPage = {
+  params: { slug: string }
 }
 
-export default Page
+const NewsDetailPage = async ({ params }: NewsDetailPage) => {
+  const { slug: pageId } = params
+  const newsItem: newsItem = await getSpecificNews(pageId)
+  return <NewsDetailPageClient newsItem={newsItem} />
+}
+
+export default NewsDetailPage
