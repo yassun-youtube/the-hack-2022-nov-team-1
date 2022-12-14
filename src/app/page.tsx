@@ -1,5 +1,4 @@
 import ScrollManagement from '@components/container/scrollManagement'
-import HeaderSection from '@components/organisms/HeaderSection'
 import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
 import TopPageNewsSection from '@components/organisms/TopPageNewsSection'
@@ -10,7 +9,6 @@ export default async function Home() {
   return (
     <>
       <ScrollManagement />
-      <HeaderSection />
       <HeroSection
         newsItem={news[0]}
         sideNewsItems={news.slice(1, 5)}

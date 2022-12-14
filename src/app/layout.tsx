@@ -1,6 +1,7 @@
 import '../styles/dist.css'
 import { Roboto } from '@next/font/google'
 import Footer from '@components/organisms/Footer'
+import Header from '@components/organisms/Header'
 
 const roboto = Roboto({
   variable: '--roboto-font',
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       */}
       <head />
       <body className={'text-black'}>
+        <Header />
         {children}
         <Footer />
       </body>
