@@ -90,18 +90,25 @@ export const SNS = [
 export const HEADER_NAV: HeaderNavType[] = [
   {
     text: 'Technology',
-    link: '/search/technology',
+    link: '/category/technology',
   },
   {
     text: 'Science',
-    link: '/search/science',
+    link: '/category/science',
   },
   {
     text: 'Business',
-    link: '/search/business',
+    link: '/category/business',
   },
   {
     text: 'Politics',
-    link: '/search/politics',
+    link: '/category/politics',
   },
 ]
+
+export const cmsHeader = {
+  'Content-Type': 'application/json',
+  'X-MICROCMS-API-KEY': `${process.env.X_MICROCMS_API_KEY}`,
+}
+
+export const cmsBaseUrl = `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/news`

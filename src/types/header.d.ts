@@ -1,4 +1,4 @@
 export type HeaderNavType = {
   text: 'Technology' | 'Science' | 'Business' | 'Politics'
-  link: '/search/technology' | '/search/science' | '/search/business' | '/search/politics'
+  link: '/category/technology' | '/category/science' | '/category/business' | '/category/politics'
 }

@@ -1,14 +1,13 @@
 import NewsDetailPageClient from '@components/templates/NewsDetailPage'
-import { getSpecificNews } from '@libs/connectCms'
+import { getSpecificNews } from '@libs/cmsUtils'
 import { newsItem } from 'types/newsItem'
 
 type NewsDetailPage = {
-  params: { slug: string }
+  params: { newsId: string }
 }
 
 const NewsDetailPage = async ({ params }: NewsDetailPage) => {
-  const { slug: pageId } = params
-  const newsItem: newsItem = await getSpecificNews(pageId)
+  const newsItem: newsItem = await getSpecificNews(params.newsId)
   return <NewsDetailPageClient newsItem={newsItem} />
 }
 
