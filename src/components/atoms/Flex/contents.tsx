@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import sanitizeHtml from 'sanitize-html'
 
 type Content = {
   imageSrc: string
@@ -6,7 +7,7 @@ type Content = {
   body: string
 }
 
-export const Contents = ({imageSrc, alt, body}: Content) => {
+export const Contents = ({ imageSrc, alt, body }: Content) => {
   return (
     <div className='w-4/5'>
       <div className=''>
@@ -17,7 +18,12 @@ export const Contents = ({imageSrc, alt, body}: Content) => {
           height={300}
         />
       </div>
-      <div className='mt-10 text-[14px] leading-[calc(25/14)]'>{body}</div>
+      <div
+        className='mt-10 text-[14px] leading-[calc(25/14)]'
+        dangerouslySetInnerHTML={{
+          __html: `${sanitizeHtml(body)}`,
+        }}
+      />
     </div>
   )
 }

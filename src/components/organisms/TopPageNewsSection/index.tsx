@@ -19,7 +19,7 @@ const TopPageNewsSection = ({ featureNewsItem, newsItems }: TopPageNewsSectionPr
           </h1>
           <div className={'mt-6 flex'}>
             <ImageContainer
-              url={'news/meta'}
+              url={`news/${featureNewsItem[0].id}`}
               paragraph={featureNewsItem[0].title}
               alt={featureNewsItem[0].description}
               src={featureNewsItem[0].imageSrc}
@@ -28,7 +28,7 @@ const TopPageNewsSection = ({ featureNewsItem, newsItems }: TopPageNewsSectionPr
               {newsItems.map((newsItem) => (
                 <ListItemContainer
                   key={newsItem.id}
-                  url={'news/mask1'}
+                  url={`news/${newsItem.id}`}
                   title={newsItem.title}
                 />
               ))}

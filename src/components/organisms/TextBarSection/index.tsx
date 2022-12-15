@@ -15,7 +15,7 @@ const TextBarSection = ({ newsItems }: TextBarSectionProps) => {
               key={newsItem.id}
               title={newsItem.title}
               publishedAt={newsItem.publishedAt}
-              url={'news/test-news'}
+              url={`news/${newsItem.id}`}
               isVerticalLine={newsItems.length - 1 !== index}
             />
           )
