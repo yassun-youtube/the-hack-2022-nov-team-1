@@ -2,19 +2,20 @@ import Bar from '@components/atoms/Bar'
 import Text from '@components/atoms/Text'
 import ScrollManagement from '@components/container/scrollManagement'
 import FilteredNewsSection from '@components/organisms/FilteredNewsSection'
-import { getFilteredNews } from '@libs/cmsUtils'
+import { getQueryNews } from '@libs/cmsUtils'
 
-type NewsCategoryPage = {
-  params: { categoryName: string }
+type NewsSearchPage = {
+  params: { keyword: string }
 }
-const NewsCategoryPage = async ({ params }: NewsCategoryPage) => {
-  const filteredNewsList = await getFilteredNews(params.categoryName)
+
+const NewsSearchPage = async ({ params }: NewsSearchPage) => {
+  const filteredNewsList = await getQueryNews(params.keyword)
   return (
     <>
       <ScrollManagement />
       <div className={'mx-10'}>
         <div className={'my-5'}>
-          <Text textSize={'text-2xl'}>{decodeURIComponent(params.categoryName)}</Text>
+          <Text textSize={'text-2xl'}>{decodeURIComponent(params.keyword)}</Text>
           <div className={'mt-2'} />
           <Bar />
         </div>
@@ -31,4 +32,4 @@ const NewsCategoryPage = async ({ params }: NewsCategoryPage) => {
   )
 }
 
-export default NewsCategoryPage
+export default NewsSearchPage
