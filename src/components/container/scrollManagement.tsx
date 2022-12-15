@@ -4,13 +4,25 @@ import { useScrollStore } from '@store/store'
 
 const ScrollManagement = () => {
   const { scrollAmount, setScrollAmount } = useScrollStore()
+
   useEffect(() => {
-    if (location.href === 'http://localhost:3000/') {
+    if (
+      location.href === location.origin ||
+      location.href.includes('/search/') ||
+      location.href.includes('/category/')
+    ) {
       window.scrollTo({ top: scrollAmount })
     }
+  })
+
+  useEffect(() => {
     return () => {
       window.addEventListener('scroll', () => {
-        if (location.href === 'http://localhost:3000/') {
+        if (
+          location.href === location.origin ||
+          location.href.includes('/search/') ||
+          location.href.includes('/category/')
+        ) {
           setScrollAmount && setScrollAmount(window.scrollY)
         }
       })
