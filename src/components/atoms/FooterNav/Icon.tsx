@@ -1,26 +1,17 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import { ReactNode } from 'react'
 
 type Icon = {
   link: string
-  src: string
-  alt: string
-  width: number
-  height: number
+  children: ReactNode
 }
 
-const Icon = ({ link, src, alt, width, height }: Icon) => {
+const Icon = ({ link, children }: Icon) => {
   return (
     <Link
       href={link}
-      className='mt-3 block'
-    >
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-      />
+      className='mt-3 block'>
+      {children}
     </Link>
   )
 }
