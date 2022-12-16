@@ -16,8 +16,8 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
         <Bar />
         <p className={'font-sans font-bold'}>TOP STORIES</p>
       </div>
-      <div className={'mx-24 flex'}>
-        <div>
+      <div className={'flex justify-evenly'}>
+        <div className={'mt-3'}>
           <Link href={`news/${newsItem.id}`}>
             <div className={'relative mb-3 h-[355px] w-[624px]'}>
               <Image
@@ -44,7 +44,7 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
             </div>
           </Link>
         </div>
-        <div className={'ml-1.5 border-l-2 border-lightgray pl-1.5'}>
+        <div className={'max-w-xs border-l-[1px] border-lightgray/50 pl-2.5 '}>
           <ul className={'py-3.5'}>
             {sideNewsItems.map((newsItem, index) => (
               <li

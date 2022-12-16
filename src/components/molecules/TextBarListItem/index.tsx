@@ -12,7 +12,7 @@ const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: Tex
   return (
     <li
       className={`mr-2 max-w-[219px] ${
-        isVerticalLine ? 'border-r-2 border-r-blue/10' : ''
+        isVerticalLine ? 'border-r-[1px] border-r-blue/10' : ''
       } py-14 pr-5`}>
       <Link href={url}>
         <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>

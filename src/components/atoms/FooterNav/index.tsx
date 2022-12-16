@@ -10,12 +10,12 @@ export type FooterNavLinkItemType = {
 }
 
 export const FooterNavLabel = ({ text }: FooterNavLabelType) => {
-  return <p className='text-2xl text-white'>{text}</p>
+  return <p className='font-bold leading-5 text-white'>{text}</p>
 }
 
 export const FooterNavLinkItem = ({ link, text }: FooterNavLinkItemType) => {
   return (
-    <li className='mt-2 text-sm text-white'>
+    <li className='mt-0.5 text-sm font-light leading-8 text-white'>
       <Link href={link}>{text}</Link>
     </li>
   )

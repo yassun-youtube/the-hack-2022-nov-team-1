@@ -18,11 +18,9 @@ const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
           alt={alt}
         />
       </Link>
-      {paragraph ?? (
-        <Link href={url}>
-          <ParagraphComponent paragraph={paragraph} />
-        </Link>
-      )}
+      <Link href={url}>
+        <ParagraphComponent paragraph={paragraph ?? paragraph} />
+      </Link>
     </div>
   )
 }

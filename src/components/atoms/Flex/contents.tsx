@@ -16,6 +16,7 @@ export const Contents = ({ imageSrc, alt, body }: Content) => {
           alt={alt}
           width={800}
           height={300}
+          style={{ width: 'auto', height: 'auto' }}
         />
       </div>
       <div

@@ -1,57 +1,83 @@
 import Link from 'next/link'
 import { FooterNavLabel } from '@components/atoms/FooterNav'
 import Icon from '@components/atoms/FooterNav/Icon'
-import Text from '@components/atoms/Text'
+import {
+  AppleStoreIcon,
+  FacebookIcon,
+  GooglePlayIcon,
+  InstagramIcon,
+  TwitterIcon,
+  YoutubeIcon,
+} from '@components/atoms/StoreIcon'
 import { FooterLabelList } from '@components/molecules/FooterLabelList'
-import { FOOTER_NAV, LIST_TEXT_ARR, SNS } from 'constant/constant'
+import { FOOTER_NAV, LIST_TEXT_ARR } from 'constant/constant'
 
 const Footer = () => {
   return (
     <footer className='bg-black p-14'>
       <nav>
         <ul className='flex gap-20'>
-          {LIST_TEXT_ARR.map((el, index) => (
-            <FooterLabelList
-              key={index}
-              label={el.label}
-              contents={el.content}
-            />
-          ))}
+          <FooterLabelList
+            label={LIST_TEXT_ARR[0].label}
+            contents={LIST_TEXT_ARR[0].content}
+          />
           <li className='w-[320px]'>
-            <FooterNavLabel text='DOWNLOAD AP NEWS' />
-            <Text textColor='text-white'>
+            <FooterNavLabel text='DOWNLOAD APP' />
+            <p className={'mt-0.5 text-sm font-light leading-8 text-white'}>
               Content with the definitive source for global and local news
-            </Text>
-            <Icon
-              link='https://www.apple.com/jp/app-store/'
-              src='/app-store.png'
-              alt='App Store'
-              width={250}
-              height={50}
-            />
-            <Icon
-              link='https://play.google.com/store/games?utm_source=apac_med&utm_medium=hasem&utm_content=Oct0121&utm_campaign=Evergreen&pcampaignid=MKT-EDR-apac-jp-1003227-med-hasem-py-Evergreen-Oct0121-Text_Search_BKWS-BKWS%7CONSEM_kwid_43700012434507668_creativeid_416444421498_device_c&gclid=CjwKCAiAs8acBhA1EiwAgRFdw9Z-kN4Ry70MbQCyPK1mZL60xUB07ptf33d_o0-PiY8i4ZwS_MgT5xoCz2kQAvD_BwE&gclsrc=aw.ds'
-              src='/google-play.png'
-              alt='Google Play'
-              width={300}
-              height={50}
-            />
+            </p>
+            <Link
+              href={'https://www.apple.com/app-store/'}
+              className='mt-3 block w-32'>
+              <AppleStoreIcon />
+            </Link>
+            <Link
+              href={'https://play.google.com/store/apps'}
+              className='mt-3 block w-32'>
+              <GooglePlayIcon />
+            </Link>
           </li>
+          <FooterLabelList
+            label={LIST_TEXT_ARR[1].label}
+            contents={LIST_TEXT_ARR[1].content}
+          />
+
           <li>
             <FooterNavLabel text='FOLLOW APP' />
-            <ul className='flex items-center gap-1 pt-2'>
-              {SNS.map((el, index) => (
-                <li key={index}>
-                  <Icon
-                    link={el.link}
-                    src={el.imgPath}
-                    alt={el.alt}
-                    width={50}
-                    height={50}
+            <ol className='flex items-center gap-2 pt-2'>
+              <li>
+                <Icon link={'https://www.youtube.com/'}>
+                  <YoutubeIcon
+                    width={40}
+                    height={40}
                   />
-                </li>
-              ))}
-            </ul>
+                </Icon>
+              </li>
+              <li>
+                <Icon link={'https://twitter.com/'}>
+                  <TwitterIcon
+                    width={40}
+                    height={40}
+                  />
+                </Icon>
+              </li>
+              <li>
+                <Icon link={'https://www.instagram.com/'}>
+                  <InstagramIcon
+                    width={40}
+                    height={40}
+                  />
+                </Icon>
+              </li>
+              <li>
+                <Icon link={'https://facebook.com'}>
+                  <FacebookIcon
+                    width={40}
+                    height={40}
+                  />
+                </Icon>
+              </li>
+            </ol>
           </li>
         </ul>
       </nav>
@@ -65,9 +91,10 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-        <Text textColor='text-white'>
-          All contents ©︎ copyright 2022 The Assosiated Press. All rights reserved.
-        </Text>
+        <div className={'text-sm text-white'}>
+          <span>All contents ©︎ copyright 2022 steadfast news.</span>
+          <span>All rights reserved.</span>
+        </div>
       </nav>
     </footer>
   )

@@ -1,4 +1,3 @@
-'use client'
 import ImageContainer from '@components/molecules/ImageContainer'
 import ListItemContainer from '@components/molecules/ListItemContainer'
 import { newsItem } from 'types/newsItem'

@@ -1,7 +1,9 @@
+import { ReactNode } from 'react'
+
 type TextComponent = {
   textColor?: 'text-blue' | 'text-white'
-  textSize?: 'text-2xl' | 'text-xl'
-  children?: React.ReactNode
+  textSize?: 'text-2xl' | 'text-xl' | 'text-sm'
+  children?: ReactNode
 }
 const Text = ({ children, textColor, textSize }: TextComponent) => {
   return (
