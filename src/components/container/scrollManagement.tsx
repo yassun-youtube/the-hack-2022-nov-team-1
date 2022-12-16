@@ -6,8 +6,24 @@ const ScrollManagement = () => {
   const { scrollAmount, setScrollAmount } = useScrollStore()
 
   useEffect(() => {
+    const scrollCapture = () => {
+      if (
+        location.href === location.origin + '/' ||
+        location.href.includes('/search/') ||
+        location.href.includes('/category/')
+      ) {
+        setScrollAmount && setScrollAmount(window.scrollY)
+      }
+    }
+    window.addEventListener('scroll', scrollCapture)
+    return () => {
+      window.removeEventListener('scroll', scrollCapture)
+    }
+  }, [scrollAmount, setScrollAmount])
+
+  useEffect(() => {
     if (
-      location.href === location.origin ||
+      location.href === location.origin + '/' ||
       location.href.includes('/search/') ||
       location.href.includes('/category/')
     ) {
@@ -15,19 +31,6 @@ const ScrollManagement = () => {
     }
   })
 
-  useEffect(() => {
-    return () => {
-      window.addEventListener('scroll', () => {
-        if (
-          location.href === location.origin ||
-          location.href.includes('/search/') ||
-          location.href.includes('/category/')
-        ) {
-          setScrollAmount && setScrollAmount(window.scrollY)
-        }
-      })
-    }
-  }, [scrollAmount, setScrollAmount])
   return <></>
 }
 
