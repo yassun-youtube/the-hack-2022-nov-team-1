@@ -13,6 +13,13 @@ export type newsItem = {
   datePublished: string
   description: string
   author: string
-  category: null
+  category?: {
+    id: string
+    createdAt: string
+    updatedAt: string
+    publishedAt: string
+    revisedAt: string
+    name: string
+  }
   tag: []
 }
