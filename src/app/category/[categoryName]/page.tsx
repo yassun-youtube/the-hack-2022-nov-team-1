@@ -3,6 +3,7 @@ import Text from '@components/atoms/Text'
 import ScrollManagement from '@components/container/scrollManagement'
 import FilteredNewsSection from '@components/organisms/FilteredNewsSection'
 import { getFilteredNews } from '@libs/cmsUtils'
+import { NEWS_CATEGORIES } from 'constant/constant'
 
 type NewsCategoryPage = {
   params: { categoryName: string }
@@ -32,3 +33,8 @@ const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) 
 }
 
 export default NewsCategoryPage
+
+export const generateStaticParams = () =>
+  NEWS_CATEGORIES.map((categoryName) => ({
+    categoryName,
+  }))

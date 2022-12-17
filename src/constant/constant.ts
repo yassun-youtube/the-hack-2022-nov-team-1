@@ -79,6 +79,8 @@ export const HEADER_NAV: HeaderNavType[] = [
   },
 ]
 
+export const NEWS_CATEGORIES = ['technology', 'science', 'business', 'politics']
+
 export const cmsHeader = {
   'Content-Type': 'application/json',
   'X-MICROCMS-API-KEY': `${process.env.X_MICROCMS_API_KEY}`,
