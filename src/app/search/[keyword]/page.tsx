@@ -8,14 +8,14 @@ type NewsSearchPage = {
   params: { keyword: string }
 }
 
-const NewsSearchPage = async ({ params }: NewsSearchPage) => {
-  const filteredNewsList = await getQueryNews(params.keyword)
+const NewsSearchPage = async ({ params: { keyword } }: NewsSearchPage) => {
+  const filteredNewsList = await getQueryNews(keyword)
   return (
     <>
       <ScrollManagement />
       <div className={'mx-10'}>
         <div className={'my-5'}>
-          <Text textSize={'text-2xl'}>{decodeURIComponent(params.keyword)}</Text>
+          <Text textSize={'text-2xl'}>{decodeURIComponent(keyword)}</Text>
           <div className={'mt-2'} />
           <Bar />
         </div>

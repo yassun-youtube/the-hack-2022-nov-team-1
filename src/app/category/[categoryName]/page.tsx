@@ -7,14 +7,14 @@ import { getFilteredNews } from '@libs/cmsUtils'
 type NewsCategoryPage = {
   params: { categoryName: string }
 }
-const NewsCategoryPage = async ({ params }: NewsCategoryPage) => {
-  const filteredNewsList = await getFilteredNews(params.categoryName)
+const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) => {
+  const filteredNewsList = await getFilteredNews(categoryName)
   return (
     <>
       <ScrollManagement />
       <div className={'mx-10'}>
         <div className={'my-5'}>
-          <Text textSize={'text-2xl'}>{decodeURIComponent(params.categoryName)}</Text>
+          <Text textSize={'text-2xl'}>{decodeURIComponent(categoryName)}</Text>
           <div className={'mt-2'} />
           <Bar />
         </div>
