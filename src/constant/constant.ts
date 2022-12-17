@@ -85,3 +85,5 @@ export const cmsHeader = {
 }
 
 export const cmsBaseUrl = `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/news`
+
+export const twApiBaseUrl = 'https://api.twitter.com/2/tweets/search'
