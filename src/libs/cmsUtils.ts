@@ -1,7 +1,7 @@
 import { cmsBaseUrl, cmsHeader as headers } from '../constant/constant'
 
 export const getLatestNews = async () => {
-  const res = await fetch(cmsBaseUrl, { headers })
+  const res = await fetch(cmsBaseUrl, { headers, next: { revalidate: 60 } })
   if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
 }
