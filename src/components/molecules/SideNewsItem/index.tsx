@@ -3,12 +3,12 @@ import SideNewsLabel from '@components/atoms/SideNewsLabel'
 import SideNewsText from '@components/atoms/SideNewsText'
 
 type SideNewsItem = {
-  label: string
+  label?: string
   text: string
   url: string
 }
 
-const SideNewsItem = ({ label, text, url }: SideNewsItem) => {
+const SideNewsItem = ({ label = '', text, url }: SideNewsItem) => {
   return (
     <>
       <Link href={url}>

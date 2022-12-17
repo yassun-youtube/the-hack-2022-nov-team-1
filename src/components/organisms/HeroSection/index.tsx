@@ -52,7 +52,7 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
                 className={index > 0 ? 'mt-8' : ''}>
                 <SideNewsItem
                   url={`news/${newsItem.id}`}
-                  label={newsItem.sourceName}
+                  label={newsItem.category?.name}
                   text={newsItem.title}
                 />
               </li>
