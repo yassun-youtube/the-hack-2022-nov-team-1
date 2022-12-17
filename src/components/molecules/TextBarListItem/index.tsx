@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import timeAgoUtil from '@libs/timeAgo'
+import TimeAgoText from '@components/atoms/TimeAgoText'
 
 type TextBarListItem = {
   title: string
@@ -18,7 +18,9 @@ const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: Tex
         <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>
           {title}
         </p>
-        <span className={'text-sm font-light leading-4'}>{timeAgoUtil(publishedAt)}</span>
+        <span className={'text-sm font-light leading-4'}>
+          <TimeAgoText time={publishedAt} />
+        </span>
       </Link>
     </li>
   )

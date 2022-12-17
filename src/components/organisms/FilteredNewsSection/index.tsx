@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import Text from '@components/atoms/Text'
+import TimeAgoText from '@components/atoms/TimeAgoText'
 import ImageContainer from '@components/molecules/ImageContainer'
-import timeAgoUtil from '@libs/timeAgo'
 import { newsItem } from 'types/newsItem'
 
 const FilteredNewsSection = ({ newsItemList }: { newsItemList: newsItem[] }) => {
@@ -16,7 +16,9 @@ const FilteredNewsSection = ({ newsItemList }: { newsItemList: newsItem[] }) => 
           </Link>
           <p className={'my-3 flex text-sm font-light leading-4'}>
             <span className={'pr-5'}>By {newsItem.author}</span>
-            <span>{timeAgoUtil(newsItem.updatedAt)}</span>
+            <span>
+              <TimeAgoText time={newsItem.updatedAt} />
+            </span>
           </p>
           <div className={'flex'}>
             <ImageContainer
