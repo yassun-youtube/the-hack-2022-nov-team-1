@@ -2,14 +2,20 @@
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useRef } from 'react'
+import { useScrollStore } from '@store/store'
 
 const SearchField = () => {
   const formRef = useRef<HTMLFormElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
 
+  const { setScrollAmount } = useScrollStore()
+
   const submitHandler = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault()
+    if (location.href.includes('/news/')) {
+      setScrollAmount && setScrollAmount(0)
+    }
     router.push(`/search/${inputRef.current?.value}`)
   }
   return (
