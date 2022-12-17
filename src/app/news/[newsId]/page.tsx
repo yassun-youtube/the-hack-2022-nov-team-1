@@ -1,5 +1,6 @@
 import NewsDetailPageClient from '@components/templates/NewsDetailPage'
 import { getSpecificNews } from '@libs/cmsUtils'
+import { getTweets } from '@libs/tweetUtil'
 import { newsItem } from 'types/newsItem'
 
 type NewsDetailPage = {
@@ -8,7 +9,13 @@ type NewsDetailPage = {
 
 const NewsDetailPage = async ({ params }: NewsDetailPage) => {
   const newsItem: newsItem = await getSpecificNews(params.newsId)
-  return <NewsDetailPageClient newsItem={newsItem} />
+  const tweetItems: string[] = await getTweets(newsItem.originalUrl)
+  return (
+    <NewsDetailPageClient
+      newsItem={newsItem}
+      tweetItems={tweetItems}
+    />
+  )
 }
 
 export default NewsDetailPage

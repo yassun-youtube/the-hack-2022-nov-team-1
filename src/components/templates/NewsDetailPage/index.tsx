@@ -11,9 +11,10 @@ import { newsItem } from 'types/newsItem'
 
 type NewsDetailPageClientProps = {
   newsItem: newsItem
+  tweetItems: string[]
 }
 
-const NewsDetailPageClient = ({ newsItem }: NewsDetailPageClientProps) => {
+const NewsDetailPageClient = ({ newsItem, tweetItems }: NewsDetailPageClientProps) => {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])
@@ -32,7 +33,7 @@ const NewsDetailPageClient = ({ newsItem }: NewsDetailPageClientProps) => {
           alt={newsItem.title}
           body={newsItem.body}
         />
-        <Sidebar />
+        <Sidebar tweetItems={tweetItems} />
       </Flex>
     </div>
   )
