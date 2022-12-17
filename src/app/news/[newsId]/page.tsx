@@ -1,5 +1,5 @@
 import NewsDetailPageClient from '@components/templates/NewsDetailPage'
-import { getSpecificNews, getLatestNewsIds } from '@libs/cmsUtils'
+import { getLatestNewsIds, getSpecificNewsCached } from '@libs/cmsUtils'
 import { getTweetsCached, preloadTweets } from '@libs/tweetUtil'
 import { newsItem } from 'types/newsItem'
 
@@ -8,7 +8,7 @@ type NewsDetailPage = {
 }
 
 const NewsDetailPage = async ({ params: { newsId } }: NewsDetailPage) => {
-  const newsItem: newsItem = await getSpecificNews(newsId)
+  const newsItem: newsItem = await getSpecificNewsCached(newsId)
   preloadTweets(newsItem.originalUrl)
   const tweetItems: string[] = await getTweetsCached(newsItem.originalUrl)
   return (

@@ -2,14 +2,14 @@ import Bar from '@components/atoms/Bar'
 import Text from '@components/atoms/Text'
 import ScrollManagement from '@components/container/scrollManagement'
 import FilteredNewsSection from '@components/organisms/FilteredNewsSection'
-import { getQueryNews } from '@libs/cmsUtils'
+import { getQueryNewsCached } from '@libs/cmsUtils'
 
 type NewsSearchPage = {
   params: { keyword: string }
 }
 
 const NewsSearchPage = async ({ params: { keyword } }: NewsSearchPage) => {
-  const filteredNewsList = await getQueryNews(keyword)
+  const filteredNewsList = await getQueryNewsCached(keyword)
   return (
     <>
       <ScrollManagement />
