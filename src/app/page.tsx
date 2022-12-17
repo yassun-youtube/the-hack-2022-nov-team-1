@@ -3,11 +3,12 @@ import ScrollManagement from '@components/container/scrollManagement'
 import CategoryNewsSection from '@components/organisms/CategoryNewsSection'
 import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
-import { getFilteredNews, getLatestNews } from '@libs/cmsUtils'
+import { getFilteredNews, getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
 import { newsItem } from 'types/newsItem'
 
 export default async function Home() {
-  const news = await getLatestNews()
+  getLatestNewsCachedPreload()
+  const news = await getLatestNewsCached()
   const technologyNewsItems: newsItem[] = await getFilteredNews('technology')
   const scienceNewsItems: newsItem[] = await getFilteredNews('science')
   const businessNewsItems: newsItem[] = await getFilteredNews('business')

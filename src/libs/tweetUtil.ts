@@ -1,7 +1,12 @@
+import { cache } from 'react'
 import { twApiBaseUrl } from '../constant/constant'
 import { tweetItem } from 'types/tweetItem'
+import 'server-only'
 
-export const getTweets = async (url: string) => {
+export const preloadTweets = (url: string) => {
+  void getTweetsCached(url)
+}
+export const getTweetsCached = cache(async (url: string) => {
   const res = await fetch(`${twApiBaseUrl}/recent?query=url:"${url}" -is:retweet`, {
     headers: {
       Authorization: `Bearer ${process.env.TW_API_KEY}`,
@@ -18,4 +23,4 @@ export const getTweets = async (url: string) => {
 
   const set = new Set(tweetTextArray)
   return [...set]
-}
+})

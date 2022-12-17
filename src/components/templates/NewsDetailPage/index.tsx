@@ -10,14 +10,16 @@ import timeAgoUtil from '@libs/timeAgo'
 import { newsItem } from 'types/newsItem'
 
 type NewsDetailPageClientProps = {
-  newsItem: newsItem
   tweetItems: string[]
+  newsId: string
+  newsItem: newsItem
 }
 
 const NewsDetailPageClient = ({ newsItem, tweetItems }: NewsDetailPageClientProps) => {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])
+
   return (
     <div className='mt-5 px-10 pb-20'>
       <Text textSize='text-2xl'>{newsItem.title}</Text>

@@ -1,7 +1,17 @@
+import { cache } from 'react'
 import { cmsBaseUrl, cmsHeader as headers } from '../constant/constant'
+import 'server-only'
 
-export const getLatestNews = async () => {
+export const getLatestNewsCachedPreload = () => {
+  void getLatestNewsCached()
+}
+export const getLatestNewsCached = cache(async () => {
   const res = await fetch(cmsBaseUrl, { headers, next: { revalidate: 60 } })
+  return (await res.json()).contents
+})
+
+export const getLatestNewsIds = async () => {
+  const res = await fetch(`${cmsBaseUrl}?limit=50&fields=id`, { headers })
   if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
 }
