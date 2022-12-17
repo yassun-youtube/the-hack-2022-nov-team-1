@@ -1,9 +1,8 @@
 import Link from 'next/link'
-import { ReactNode } from 'react'
 
 type Icon = {
   link: string
-  children: ReactNode
+  children: React.ReactNode
 }
 
 const Icon = ({ link, children }: Icon) => {

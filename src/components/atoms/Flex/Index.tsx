@@ -1,14 +1,12 @@
 type Flex = {
   children: React.ReactNode
   alignItem?: string
-  justifyCotent?: string
+  justifyContent?: string
 }
 
-const Flex = ({ children, alignItem, justifyCotent }: Flex) => {
+const Flex = ({ children, alignItem, justifyContent }: Flex) => {
   return (
-    <div className={`flex ${'align-' + alignItem} ${'justify' + justifyCotent}`}>
-      {children}
-    </div>
+    <div className={`flex ${'align-' + alignItem} ${'justify' + justifyContent}`}>{children}</div>
   )
 }
 
