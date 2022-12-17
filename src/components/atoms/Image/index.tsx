@@ -12,8 +12,7 @@ const ImageComponent = ({ src, alt }: ImageComponent) => {
       alt={alt}
       width={375}
       height={268}
-      priority
-      style={{ width: '374px' }}
+      style={{ width: 'auto', height: 'auto' }}
     />
   )
 }

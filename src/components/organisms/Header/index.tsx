@@ -8,7 +8,9 @@ const HeaderSection = () => {
   return (
     <header className='mx-10 h-[134px] pt-7 pb-5'>
       <div className='mb-7 w-fit'>
-        <Link href={'/'}>
+        <Link
+          href={'/'}
+          aria-label={'top-page'}>
           <AppLogo />
         </Link>
       </div>

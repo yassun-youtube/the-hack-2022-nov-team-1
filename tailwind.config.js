@@ -13,7 +13,9 @@ module.exports = {
       gray: '#828282',
       lightgray: '#D7E9F4',
       zinc: '#FCFCFC',
-      blue: '#007AC8',
+      blue: '#1B74AC',
+      'bright-gray': '#FEFEFE',
+      transparent: 'transparent',
     },
     extend: {
       fontFamily: {

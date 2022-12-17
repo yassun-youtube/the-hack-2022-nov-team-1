@@ -8,10 +8,12 @@ type ListItemContainer = {
 
 const ListItemContainer = ({ title, url }: ListItemContainer) => {
   return (
-    <Link href={url}>
-      <ListTextComponent>{title}</ListTextComponent>
-      <hr className={'mb-4'} />
-    </Link>
+    <li>
+      <Link href={url}>
+        <ListTextComponent>{title}</ListTextComponent>
+        <hr className={'mb-4'} />
+      </Link>
+    </li>
   )
 }
 

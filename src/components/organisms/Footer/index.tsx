@@ -28,12 +28,14 @@ const Footer = () => {
             </p>
             <Link
               href={'https://www.apple.com/app-store/'}
-              className='mt-3 block w-32'>
+              className='mt-3 block w-32'
+              aria-label={'app-store'}>
               <AppleStoreIcon />
             </Link>
             <Link
               href={'https://play.google.com/store/apps'}
-              className='mt-3 block w-32'>
+              className='mt-3 block w-32'
+              aria-label={'google-play'}>
               <GooglePlayIcon />
             </Link>
           </li>
@@ -41,12 +43,13 @@ const Footer = () => {
             label={LIST_TEXT_ARR[1].label}
             contents={LIST_TEXT_ARR[1].content}
           />
-
           <li>
             <FooterNavLabel text='FOLLOW APP' />
             <ol className='flex items-center gap-2 pt-2'>
               <li>
-                <Icon link={'https://www.youtube.com/'}>
+                <Icon
+                  link={'https://www.youtube.com/'}
+                  label={'youtube'}>
                   <YoutubeIcon
                     width={40}
                     height={40}
@@ -54,7 +57,9 @@ const Footer = () => {
                 </Icon>
               </li>
               <li>
-                <Icon link={'https://twitter.com/'}>
+                <Icon
+                  link={'https://twitter.com/'}
+                  label={'twitter'}>
                   <TwitterIcon
                     width={40}
                     height={40}
@@ -62,7 +67,9 @@ const Footer = () => {
                 </Icon>
               </li>
               <li>
-                <Icon link={'https://www.instagram.com/'}>
+                <Icon
+                  link={'https://www.instagram.com/'}
+                  label={'instagram'}>
                   <InstagramIcon
                     width={40}
                     height={40}
@@ -70,7 +77,9 @@ const Footer = () => {
                 </Icon>
               </li>
               <li>
-                <Icon link={'https://facebook.com'}>
+                <Icon
+                  link={'https://facebook.com'}
+                  label={'facebook'}>
                   <FacebookIcon
                     width={40}
                     height={40}
@@ -86,12 +95,12 @@ const Footer = () => {
           {FOOTER_NAV.map((item, index) => (
             <li
               key={index}
-              className='text-[12px] text-white'>
+              className='text-[12px] text-bright-gray'>
               <Link href={item.link}>{item.label}</Link>
             </li>
           ))}
         </ul>
-        <div className={'text-sm text-white'}>
+        <div className={'text-sm text-bright-gray'}>
           <span>All contents ©︎ copyright 2022 steadfast news.</span>
           <span>All rights reserved.</span>
         </div>

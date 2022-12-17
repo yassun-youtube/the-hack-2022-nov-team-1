@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import Link from 'next/link'
-import ImageComponent from '@components/atoms/Image'
 import ParagraphComponent from '@components/atoms/Paragraph'
 
 type ImageContainer = {
@@ -13,9 +13,13 @@ const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
   return (
     <div className={'flex-col'}>
       <Link href={url}>
-        <ImageComponent
+        <Image
           src={src}
           alt={alt}
+          width={750}
+          height={422}
+          quality={10}
+          style={{ width: '95%', height: 'auto' }}
         />
       </Link>
       <Link href={url}>

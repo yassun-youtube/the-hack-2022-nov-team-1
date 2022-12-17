@@ -17,6 +17,7 @@ export const Contents = ({ imageSrc, alt, body }: Content) => {
         alt={alt}
         width={800}
         height={300}
+        priority
         style={{ width: '80%', height: 'auto', objectFit: 'contain' }}
         className={`duration-100 ease-in-out ${isLoading ? 'blur-sm' : 'blur-0 grayscale-0'}`}
         onLoadingComplete={() => setLoading(false)}

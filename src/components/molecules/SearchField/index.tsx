@@ -20,13 +20,15 @@ const SearchField = () => {
   }
   return (
     <form
+      id={'searchForm'}
       className='relative float-right flex items-center rounded-full border'
       ref={formRef}
       onSubmit={(event) => submitHandler(event)}>
       <MagnifyingGlassIcon className='absolute float-right my-auto h-5 pl-2' />
       <input
+        placeholder={'searchInput'}
         type='search'
-        className='z-10 float-right h-9 w-9 cursor-pointer bg-gray/0 outline-none transition-all duration-200 ease-out focus:w-56 focus:cursor-text focus:pl-10 focus:pr-4 focus:ease-out'
+        className='z-10 float-right h-9 w-9 cursor-pointer bg-gray/0 outline-none transition-all duration-200 ease-out placeholder:text-transparent focus:w-56 focus:cursor-text focus:pl-10 focus:pr-4 focus:ease-out'
         onBlur={() => formRef.current?.reset()}
         ref={inputRef}
       />
