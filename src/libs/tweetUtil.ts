@@ -8,10 +8,11 @@ export const getTweets = async (url: string) => {
     },
     next: { revalidate: 60 },
   })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  const tweetData = (await res.json()).data
+  if (!res.ok) return []
+  const tweetResult = await res.json()
   const Rexp = /((http|https|ftp):\/\/[\w?=&./-;#~%-]+(?![\w\s?&./;#~%"=-]*>))/g
-  const tweetTextArray: string[] = tweetData.map((tweet: tweetItem) =>
+  if (tweetResult.meta.result_count === 0) return []
+  const tweetTextArray: string[] = tweetResult.data.map((tweet: tweetItem) =>
     tweet.text.replaceAll(Rexp, '').trim(),
   )
 
