@@ -16,7 +16,11 @@ const SearchField = () => {
     if (location.href.includes('/news/')) {
       setScrollAmount && setScrollAmount(0)
     }
-    router.push(`/search/${inputRef.current?.value}`)
+    let uri = ''
+    if (inputRef.current) {
+      uri = encodeURI(inputRef.current.value)
+    }
+    router.push(`/search/${uri}`)
   }
   return (
     <form
