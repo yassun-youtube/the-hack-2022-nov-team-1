@@ -1,12 +1,14 @@
 import '../styles/dist.css'
 import { Roboto } from '@next/font/google'
-import Footer from '@components/organisms/Footer'
+import dynamic from 'next/dynamic'
 import Header from '@components/organisms/Header'
 
 const roboto = Roboto({
   variable: '--roboto-font',
   weight: '100',
 })
+
+const Footer = dynamic(() => import('@components/organisms/Footer'))
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
