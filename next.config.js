@@ -21,6 +21,11 @@ const nextConfig = {
       },
     ],
   },
+  env: {
+    X_MICROCMS_API_KEY: process.env.X_MICROCMS_API_KEY,
+    SERVICE_DOMAIN: process.env.SERVICE_DOMAIN,
+    TW_API_KEY: process.env.TW_API_KEY,
+  },
 }
 
 module.exports = nextConfig
