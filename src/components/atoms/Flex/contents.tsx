@@ -13,6 +13,7 @@ export const Contents = ({ imageSrc, alt, body }: Content) => {
       <BlurImage
         imageSrc={imageSrc}
         alt={alt}
+        widthPercent={'80%'}
       />
       <div
         className='mt-10 text-[14px] leading-[calc(25/14)]'

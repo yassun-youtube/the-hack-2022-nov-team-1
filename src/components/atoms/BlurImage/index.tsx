@@ -1,24 +1,32 @@
 'use client'
 
 import Image from 'next/image'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 type Content = {
   imageSrc: string
   alt: string
+  widthPercent?: string
+  onBlur?: boolean
 }
 
-const BlurImage = ({ imageSrc, alt }: Content) => {
-  const [isLoading, setLoading] = useState(true)
+const cn = (isLoading: boolean) =>
+  `duration-100 ease-in-out ${isLoading ? 'blur-sm' : 'blur-0 grayscale-0'}`
+
+const BlurImage = ({ imageSrc, alt, onBlur = true, widthPercent = '100%' }: Content) => {
+  const [isLoading, setLoading] = useState(onBlur)
+  useEffect(() => {
+    cn(isLoading)
+  }, [isLoading])
   return (
     <Image
       src={imageSrc}
-      alt={alt}
+      alt={decodeURI(alt)}
       width={800}
       height={300}
-      priority
-      style={{ width: '80%', height: 'auto', objectFit: 'contain' }}
-      className={`duration-100 ease-in-out ${isLoading ? 'blur-sm' : 'blur-0 grayscale-0'}`}
+      style={{ width: widthPercent, height: 'auto', objectFit: 'contain' }}
+      quality={80}
+      className={cn(isLoading)}
       onLoadingComplete={() => setLoading(false)}
     />
   )

@@ -16,6 +16,7 @@ const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
         <BlurImage
           imageSrc={src}
           alt={alt}
+          onBlur={false}
         />
       </Link>
       <Link href={url}>
