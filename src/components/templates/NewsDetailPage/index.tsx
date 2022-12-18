@@ -23,8 +23,8 @@ const NewsDetailPageClient = ({ newsItem, tweetItems }: NewsDetailPageClientProp
   return (
     <div className='mt-5 px-10 pb-20'>
       <Text textSize='text-2xl'>{newsItem.title}</Text>
-      <Flex alignItem='center my-3'>
-        <span className={'mr-4 font-sans font-semibold'}>{`By ${newsItem.author}`}</span>
+      <Flex alignItem='center my-3 font-sans'>
+        <span className={'mr-4'}>{`By ${newsItem.author}`}</span>
         <span>
           <TimeAgoText time={newsItem.updatedAt} />
         </span>

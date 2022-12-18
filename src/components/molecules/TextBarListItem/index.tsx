@@ -18,7 +18,7 @@ const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: Tex
         <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>
           {title}
         </p>
-        <span className={'text-sm font-light leading-4'}>
+        <span className={'font-robot text-xs font-black leading-4 text-black'}>
           <TimeAgoText time={publishedAt} />
         </span>
       </Link>

@@ -12,10 +12,14 @@ const FilteredNewsSection = ({ newsItemList }: { newsItemList: newsItem[] }) => 
           key={newsItem.id}
           className={'mb-8'}>
           <Link href={`/news/${newsItem.id}`}>
-            <Text textSize='text-xl'>{newsItem.title}</Text>
+            <Text
+              textSize='text-xl'
+              fontWight={'font-semibold'}>
+              {newsItem.title}
+            </Text>
           </Link>
-          <p className={'my-3 flex text-sm font-light leading-4'}>
-            <span className={'pr-5'}>By {newsItem.author}</span>
+          <p className={'my-3 flex text-sm font-extralight leading-4'}>
+            <span className={'pr-5 '}>By {newsItem.author}</span>
             <span>
               <TimeAgoText time={newsItem.updatedAt} />
             </span>
