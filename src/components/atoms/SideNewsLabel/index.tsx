@@ -3,7 +3,7 @@ type SideNewsLabelComponent = {
 }
 const SideNewsLabel = ({ label }: SideNewsLabelComponent) => {
   return (
-    <div className={'w-20 bg-blue p-1 text-center'}>
+    <div className={'w-fit bg-blue py-1 px-2 text-center'}>
       <p className={'text-xs font-bold text-white'}>{label}</p>
     </div>
   )
