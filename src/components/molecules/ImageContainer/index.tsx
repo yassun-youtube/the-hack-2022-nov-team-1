@@ -7,9 +7,10 @@ type ImageContainer = {
   alt: string
   paragraph?: string
   url: string
+  imageMaxHeight?: number
 }
 
-const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
+const ImageContainer = ({ src, alt, paragraph, url, imageMaxHeight }: ImageContainer) => {
   return (
     <div className={'flex-col'}>
       <Link href={url}>
@@ -17,6 +18,7 @@ const ImageContainer = ({ src, alt, paragraph, url }: ImageContainer) => {
           imageSrc={src}
           alt={alt}
           onBlur={false}
+          maxHeight={imageMaxHeight}
         />
       </Link>
       <Link href={url}>
