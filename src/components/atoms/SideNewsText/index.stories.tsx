@@ -1,9 +1,8 @@
 import { Meta, StoryObj } from '@storybook/react'
 import SideNewsTextComponent from './index'
 
-export default {
-  component: SideNewsTextComponent,
-} as Meta<typeof SideNewsTextComponent>
+const meta: Meta<typeof SideNewsTextComponent> = { component: SideNewsTextComponent }
+export default meta
 
 export const Primary: StoryObj<typeof SideNewsTextComponent> = {
   args: {

@@ -1,9 +1,8 @@
 import type { StoryObj, Meta } from '@storybook/react'
 import ImageComponent from '@components/atoms/Image/index'
 
-export default {
-  component: ImageComponent,
-} as Meta<typeof ImageComponent>
+const meta: Meta<typeof ImageComponent> = { component: ImageComponent }
+export default meta
 
 export const Primary: StoryObj<typeof ImageComponent> = {
   args: {
