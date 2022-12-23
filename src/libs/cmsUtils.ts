@@ -40,7 +40,11 @@ export const getQueryNewsIdsCached = cache(async (keyword: string) => {
   return (await res.json()).contents
 })
 
-export const getFilteredNews = async (categoryName: string) => {
+export const getCategoryNewsPreload = (categoryName: string) => {
+  void getCategoryNews(categoryName)
+}
+
+export const getCategoryNews = cache(async (categoryName: string) => {
   let categoryId: string
   switch (categoryName) {
     case 'business':
@@ -63,4 +67,4 @@ export const getFilteredNews = async (categoryName: string) => {
   })
   if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
-}
+})
