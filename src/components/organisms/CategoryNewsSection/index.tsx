@@ -18,7 +18,7 @@ const CategoryNewsSection = ({ categoryName, newsItems }: TopPageNewsSectionProp
           </h1>
           <div className={'mt-6 flex'}>
             <ImageContainer
-              url={`news/${newsItems[0].id}`}
+              url={`feature-news/${newsItems[0].id}`}
               paragraph={newsItems[0].title}
               alt={newsItems[0].description}
               src={newsItems[0].imageSrc}
@@ -29,7 +29,7 @@ const CategoryNewsSection = ({ categoryName, newsItems }: TopPageNewsSectionProp
                   return (
                     <ListItemContainer
                       key={newsItem.id}
-                      url={`news/${newsItem.id}`}
+                      url={`feature-news/${newsItem.id}`}
                       title={newsItem.title}
                     />
                   )

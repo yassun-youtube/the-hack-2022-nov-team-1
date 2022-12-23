@@ -18,7 +18,7 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
       </div>
       <div className={'flex justify-evenly'}>
         <div className={'mt-3'}>
-          <Link href={`news/${newsItem.id}`}>
+          <Link href={`feature-news/${newsItem.id}`}>
             <div className={'relative mb-3 h-[355px] w-[624px]'}>
               <Image
                 src={`${newsItem.imageSrc}`}
@@ -30,7 +30,7 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
               />
             </div>
           </Link>
-          <Link href={`news/${newsItem.id}`}>
+          <Link href={`feature-news/${newsItem.id}`}>
             <div className={'w-[624px]'}>
               <h1 className={'text-center text-2xl font-extrabold line-clamp-2'}>
                 {newsItem.title}
@@ -51,7 +51,7 @@ const HeroSection = ({ newsItem, sideNewsItems }: HeroSectionProps) => {
                 key={newsItem.id}
                 className={index > 0 ? 'mt-8' : ''}>
                 <SideNewsItem
-                  url={`news/${newsItem.id}`}
+                  url={`feature-news/${newsItem.id}`}
                   label={newsItem.category?.name}
                   text={newsItem.title}
                 />
