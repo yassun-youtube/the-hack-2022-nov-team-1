@@ -6,7 +6,7 @@ export const getLatestNewsCachedPreload = () => {
   void getLatestNewsCached()
 }
 export const getLatestNewsCached = cache(async () => {
-  const res = await fetch(cmsBaseUrl, { headers, next: { revalidate: 60 } })
+  const res = await fetch(`${cmsBaseUrl}?limit=12`, { headers, next: { revalidate: 60 } })
   if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
 })

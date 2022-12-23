@@ -2,40 +2,29 @@ import ScrollManagement from '@components/container/scrollManagement'
 import CategoryNewsSection from '@components/organisms/CategoryNewsSection'
 import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
-import { getCategoryNews, getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
+import { getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
+import { NEWS_CATEGORIES } from 'constant/constant'
 import { newsItem } from 'types/newsItem'
 
 export default async function Home() {
   getLatestNewsCachedPreload()
-  const news = await getLatestNewsCached()
-  const technologyNewsItems: newsItem[] = await getCategoryNews('technology')
-  const scienceNewsItems: newsItem[] = await getCategoryNews('science')
-  const businessNewsItems: newsItem[] = await getCategoryNews('business')
-  const politicsNewsItems: newsItem[] = await getCategoryNews('politics')
+  const topNewsItem: newsItem[] = await getLatestNewsCached()
   return (
-    <>
+    <div className={'pb-16'}>
       <ScrollManagement />
       <HeroSection
-        newsItem={news[0]}
-        sideNewsItems={news.slice(1, 5)}
+        newsItem={topNewsItem[0]}
+        sideNewsItems={topNewsItem.slice(1, 5)}
       />
-      <TextBarSection newsItems={news.slice(1, 6)} />
-      <CategoryNewsSection
-        categoryName={'technology'}
-        newsItems={technologyNewsItems}
-      />
-      <CategoryNewsSection
-        categoryName={'science'}
-        newsItems={scienceNewsItems}
-      />
-      <CategoryNewsSection
-        categoryName={'business'}
-        newsItems={businessNewsItems}
-      />
-      <CategoryNewsSection
-        categoryName={'politics'}
-        newsItems={politicsNewsItems}
-      />
-    </>
+      <TextBarSection newsItems={topNewsItem.slice(6)} />
+      {NEWS_CATEGORIES.map((category) => {
+        return (
+          <div key={category}>
+            {/* @ts-expect-error Async Server Component */}
+            <CategoryNewsSection categoryName={category} />
+          </div>
+        )
+      })}
+    </div>
   )
 }

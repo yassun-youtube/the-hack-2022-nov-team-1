@@ -1,13 +1,15 @@
 import ImageContainer from '@components/molecules/ImageContainer'
 import ListItemContainer from '@components/molecules/ListItemContainer'
+import { getCategoryNews } from '@libs/cmsUtils'
 import { newsItem } from 'types/newsItem'
 
 type TopPageNewsSectionProps = {
-  newsItems: newsItem[]
   categoryName: string
 }
 
-const CategoryNewsSection = ({ categoryName, newsItems }: TopPageNewsSectionProps) => {
+const CategoryNewsSection = async ({ categoryName }: TopPageNewsSectionProps) => {
+  const categoryNewsItems: newsItem[] = await getCategoryNews(categoryName)
+
   return (
     <section className={'flex justify-center'}>
       <div className={'my-24 h-[409px] w-[680px] bg-white'}>
@@ -18,13 +20,13 @@ const CategoryNewsSection = ({ categoryName, newsItems }: TopPageNewsSectionProp
           </h1>
           <div className={'mt-6 flex'}>
             <ImageContainer
-              url={`feature-news/${newsItems[0].id}`}
-              paragraph={newsItems[0].title}
-              alt={newsItems[0].description}
-              src={newsItems[0].imageSrc}
+              url={`feature-news/${categoryNewsItems[0].id}`}
+              paragraph={categoryNewsItems[0].title}
+              alt={categoryNewsItems[0].description}
+              src={categoryNewsItems[0].imageSrc}
             />
             <ul className={'ml-10 flex-col'}>
-              {newsItems.map((newsItem, index) => {
+              {categoryNewsItems.map((newsItem, index) => {
                 if (index !== 0 && index <= 5)
                   return (
                     <ListItemContainer
