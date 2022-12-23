@@ -35,14 +35,12 @@ export default async function NewsSearchPage({ searchParams }: NewsSearchPagePro
           <div className={'w-[179px]'} />
           <div className={'flex-col'}>
             {filteredNewsIdList.map((item: { id: string }) => (
-              <div
-                className={''}
-                key={item.id}>
-                <Suspense fallback={<div className={'mb-8 h-64 min-h-fit'}></div>}>
-                  {/* @ts-expect-error Async Server Component */}
-                  <SearchNewsItem newsId={item.id} />
-                </Suspense>
-              </div>
+              <Suspense
+                key={item.id}
+                fallback={<div className={'mb-8 h-64 min-h-fit'} />}>
+                {/* @ts-expect-error Async Server Component */}
+                <SearchNewsItem newsId={item.id} />
+              </Suspense>
             ))}
           </div>
           <div className={'w-[348px]'} />
