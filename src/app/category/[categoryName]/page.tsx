@@ -13,7 +13,7 @@ const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) 
   getCategoryNewsPreload(categoryName)
   const categoryNewsList: newsItem[] = await getCategoryNews(categoryName)
   return (
-    <>
+    <div className={'mb-8'}>
       <ScrollManagement />
       <div className={'mx-10'}>
         <div className={'my-5'}>
@@ -36,7 +36,7 @@ const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) 
           <div className={'w-[348px]'} />
         </div>
       </div>
-    </>
+    </div>
   )
 }
 

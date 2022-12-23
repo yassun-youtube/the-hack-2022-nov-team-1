@@ -14,12 +14,15 @@ export const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
         imageSrc={imageSrc}
         alt={alt}
       />
-      <div
-        className='mt-10 text-[14px] leading-[calc(25/14)]'
-        dangerouslySetInnerHTML={{
-          __html: `${sanitizeHtml(body)}`,
-        }}
-      />
+      <div className={'flex'}>
+        <div className={'md:m-24'} />
+        <div
+          className='mt-10 text-[14px] leading-[calc(25/14)]'
+          dangerouslySetInnerHTML={{
+            __html: `${sanitizeHtml(body)}`,
+          }}
+        />
+      </div>
     </div>
   )
 }
