@@ -3,9 +3,11 @@ const config: StorybookConfig = {
   stories: ['../src/components/**/*.stories.tsx'],
   addons: [
     '@storybook/addon-links',
-    '@storybook/addon-essentials',
-    '@storybook/addon-interactions',
-    'storybook-addon-next-router',
+    // Todo 起動エラー修正待ち
+    // '@storybook/addon-essentials',
+    // '@storybook/addon-interactions',
+    // Todo exportエラー修正待ち
+    // 'storybook-addon-next-router',
   ],
   staticDirs: ['../public'],
   framework: {
@@ -15,9 +17,8 @@ const config: StorybookConfig = {
       strictMode: true,
     },
   },
-  features: {
-    storyStoreV7: true,
+  docs: {
+    docsPage: true,
   },
 }
-
 export default config
