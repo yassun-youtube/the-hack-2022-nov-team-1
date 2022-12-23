@@ -16,7 +16,7 @@ export const getTweetsCached = cache(async (url: string) => {
   if (!res.ok) return []
   const tweetResult = await res.json()
   const Rexp = /((http|https|ftp):\/\/[\w?=&./-;#~%-]+(?![\w\s?&./;#~%"=-]*>))/g
-  if (tweetResult.meta.result_count === 0) return []
+  if (!tweetResult.meta || tweetResult.meta.result_count === 0) return []
   const tweetTextArray: string[] = tweetResult.data.map((tweet: tweetItem) =>
     tweet.text.replaceAll(Rexp, '').trim(),
   )
