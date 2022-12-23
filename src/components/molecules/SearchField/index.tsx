@@ -18,9 +18,9 @@ const SearchField = () => {
     }
     let uri = ''
     if (inputRef.current) {
-      uri = encodeURI(inputRef.current.value)
+      uri = inputRef.current.value
     }
-    router.push(`/search/${uri}`)
+    router.push(`/search?q=${encodeURI(uri)}`)
   }
   return (
     <form

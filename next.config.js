@@ -5,6 +5,15 @@ const nextConfig = {
     appDir: true,
     fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
   },
+  async redirects() {
+    return [
+      {
+        source: '/search/:slug',
+        destination: '/news/:slug',
+        permanent: false,
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {

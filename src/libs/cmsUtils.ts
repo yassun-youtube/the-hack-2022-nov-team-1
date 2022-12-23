@@ -1,5 +1,5 @@
 import { cache } from 'react'
-import { cmsBaseUrl, cmsHeader as headers } from '../constant/constant'
+import { cmsBaseUrl, cmsHeader as headers } from 'constant/constant'
 import 'server-only'
 
 export const getLatestNewsCachedPreload = () => {
@@ -7,6 +7,7 @@ export const getLatestNewsCachedPreload = () => {
 }
 export const getLatestNewsCached = cache(async () => {
   const res = await fetch(cmsBaseUrl, { headers, next: { revalidate: 60 } })
+  if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
 })
 
@@ -21,30 +22,24 @@ export const getSpecificNewsCached = cache(async (id: string) => {
   return await res.json()
 })
 
-export const getQueryNewsPreload = (keyword: string) => {
-  void getQueryNewsCached(keyword)
-}
-export const getQueryNewsCached = cache(async (keyword: string) => {
-  const res = await fetch(`${cmsBaseUrl}/?q=${keyword}`, {
-    headers,
-  })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  return (await res.json()).contents
-})
-
 export const getLatestNewsIds = async () => {
   const res = await fetch(`${cmsBaseUrl}?limit=50&fields=id`, { headers })
   if (!res.ok) throw new Error('Failed to fetch data')
   return (await res.json()).contents
 }
 
-export const getSpecificNews = async (id: string) => {
-  const res = await fetch(`${cmsBaseUrl}/${id}`, {
+export const getQueryNewsIdsPreload = (keyword: string) => {
+  void getQueryNewsIdsCached(keyword)
+}
+export const getQueryNewsIdsCached = cache(async (keyword: string) => {
+  const res = await fetch(`${cmsBaseUrl}/?q=${encodeURI(keyword)}&fields=id`, {
     headers,
+    cache: 'no-store',
   })
   if (!res.ok) throw new Error('Failed to fetch data')
-  return await res.json()
-}
+  return (await res.json()).contents
+})
+
 export const getFilteredNews = async (categoryName: string) => {
   let categoryId: string
   switch (categoryName) {

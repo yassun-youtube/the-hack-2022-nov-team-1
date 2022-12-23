@@ -1,4 +1,5 @@
 'use client'
+
 import { useEffect } from 'react'
 import { useScrollStore } from '@store/store'
 
@@ -9,7 +10,7 @@ const ScrollManagement = () => {
     const scrollCapture = () => {
       if (
         location.href === location.origin + '/' ||
-        location.href.includes('/search/') ||
+        location.href.includes('/search?q=') ||
         location.href.includes('/category/')
       ) {
         setScrollAmount && setScrollAmount(window.scrollY)
@@ -24,7 +25,7 @@ const ScrollManagement = () => {
   useEffect(() => {
     if (
       location.href === location.origin + '/' ||
-      location.href.includes('/search/') ||
+      location.href.includes('/search?q=') ||
       location.href.includes('/category/')
     ) {
       window.scrollTo({ top: scrollAmount })
