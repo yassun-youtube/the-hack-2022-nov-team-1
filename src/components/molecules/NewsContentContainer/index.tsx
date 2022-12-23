@@ -7,7 +7,7 @@ type Content = {
   body: string
 }
 
-export const Contents = ({ imageSrc, alt, body }: Content) => {
+export const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
   return (
     <div className='w-4/5'>
       <BlurImage
