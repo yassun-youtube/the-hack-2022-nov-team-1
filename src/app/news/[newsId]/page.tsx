@@ -1,6 +1,5 @@
-import NewsDetailPageClient from '@components/templates/NewsDetailPage'
-import { getLatestNewsIds, getSpecificNewsCached } from '@libs/cmsUtils'
-import { getTweetsCached, preloadTweets } from '@libs/tweetUtil'
+import NewsDetailSection from '@components/organisms/NewsDetailSection'
+import { getSpecificNewsCached, getSpecificNewsPreload } from '@libs/cmsUtils'
 import { newsItem } from 'types/newsItem'
 
 type NewsDetailPage = {
@@ -8,23 +7,9 @@ type NewsDetailPage = {
 }
 
 const NewsDetailPage = async ({ params: { newsId } }: NewsDetailPage) => {
+  getSpecificNewsPreload(newsId)
   const newsItem: newsItem = await getSpecificNewsCached(newsId)
-  preloadTweets(newsItem.originalUrl)
-  const tweetItems: string[] = await getTweetsCached(newsItem.originalUrl)
-  return (
-    <NewsDetailPageClient
-      newsItem={newsItem}
-      newsId={newsId}
-      tweetItems={tweetItems}
-    />
-  )
+  return <NewsDetailSection newsItem={newsItem} />
 }
 
 export default NewsDetailPage
-
-export const generateStaticParams = async () => {
-  const newsItems: newsItem[] = await getLatestNewsIds()
-  return newsItems.map((newsItem) => ({
-    newsId: newsItem.id,
-  }))
-}

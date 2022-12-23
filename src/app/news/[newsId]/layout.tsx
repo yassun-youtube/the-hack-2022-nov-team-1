@@ -1,11 +1,10 @@
-import { getSpecificNewsPreload } from '@libs/cmsUtils'
+'use client'
 
-type NewsDetailLayoutProps = {
-  params: { newsId: string }
-  children: React.ReactNode
-}
+import { useEffect } from 'react'
 
-export default function NewsDetailLayout({ children, params: { newsId } }: NewsDetailLayoutProps) {
-  getSpecificNewsPreload(newsId)
+export default function Layout({ children }: { children: React.ReactNode }) {
+  useEffect(() => {
+    window.scrollTo({ top: 0 })
+  }, [])
   return <>{children}</>
 }
