@@ -1,15 +1,17 @@
 import Bar from '@components/atoms/Bar'
 import Text from '@components/atoms/Text'
 import ScrollManagement from '@components/container/scrollManagement'
-import FilteredNewsSection from '@components/organisms/FilteredNewsSection'
-import { getFilteredNews } from '@libs/cmsUtils'
+import { SearchNewsItemContainer } from '@components/molecules/SearchNewsItemContainer'
+import { getCategoryNews, getCategoryNewsPreload } from '@libs/cmsUtils'
 import { NEWS_CATEGORIES } from 'constant/constant'
+import { newsItem } from 'types/newsItem'
 
 type NewsCategoryPage = {
   params: { categoryName: string }
 }
 const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) => {
-  const filteredNewsList = await getFilteredNews(categoryName)
+  getCategoryNewsPreload(categoryName)
+  const categoryNewsList: newsItem[] = await getCategoryNews(categoryName)
   return (
     <>
       <ScrollManagement />
@@ -23,7 +25,13 @@ const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) 
         <div className={'flex'}>
           <div className={'w-[179px]'} />
           <div className={'flex-col'}>
-            <FilteredNewsSection newsItemList={filteredNewsList} />
+            {categoryNewsList.map((newsItem) => (
+              <SearchNewsItemContainer
+                key={newsItem.id}
+                newsItem={newsItem}
+                prefix={'news'}
+              />
+            ))}
           </div>
           <div className={'w-[348px]'} />
         </div>
