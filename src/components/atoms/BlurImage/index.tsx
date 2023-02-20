@@ -19,7 +19,7 @@ const BlurImage = ({ imageSrc, alt, onBlur = true, maxHeight = 430 }: Content) =
     cn(isLoading)
   }, [isLoading])
   return (
-    <div className={'relative overflow-hidden'}>
+    <div className='relative overflow-hidden'>
       <Image
         src={imageSrc}
         alt={decodeURI(alt)}

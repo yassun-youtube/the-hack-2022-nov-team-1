@@ -11,7 +11,7 @@ const ListItemContainer = ({ title, url }: ListItemContainer) => {
     <li>
       <Link href={url}>
         <ListTextComponent>{title}</ListTextComponent>
-        <hr className={'mb-4'} />
+        <hr className='mb-4' />
       </Link>
     </li>
   )

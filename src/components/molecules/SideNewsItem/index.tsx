@@ -12,14 +12,14 @@ const SideNewsItem = ({ label = '', text, url }: SideNewsItem) => {
   return (
     <>
       <Link href={url}>
-        <div className={'relative'}>
-          <div className={'absolute left-0 top-0'}>
+        <div className='relative'>
+          <div className='absolute left-0 top-0'>
             <SideNewsLabel label={label} />
           </div>
           <SideNewsText text={text} />
         </div>
       </Link>
-      <hr className={'w-16 text-lightgray/80'} />
+      <hr className='w-16 text-lightgray/80' />
     </>
   )
 }

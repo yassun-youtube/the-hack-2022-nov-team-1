@@ -1,5 +1,5 @@
 import TextBarListItem from '@components/molecules/TextBarListItem'
-import { newsItem } from 'types/newsItem'
+import type { newsItem } from 'types/newsItem'
 
 type TextBarSectionProps = {
   newsItems: newsItem[]
@@ -7,8 +7,8 @@ type TextBarSectionProps = {
 
 const TextBarSection = ({ newsItems }: TextBarSectionProps) => {
   return (
-    <section className={'w-full'}>
-      <ul className={'mx-10 flex justify-evenly border-t-[1px] border-t-blue/10'}>
+    <section className='w-full'>
+      <ul className='mx-10 flex justify-evenly border-t-[1px] border-t-blue/10'>
         {newsItems.map((newsItem, index) => {
           return (
             <TextBarListItem

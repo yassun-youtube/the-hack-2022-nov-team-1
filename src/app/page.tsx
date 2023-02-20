@@ -4,13 +4,13 @@ import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
 import { getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
 import { NEWS_CATEGORIES } from 'constant/constant'
-import { newsItem } from 'types/newsItem'
+import type { newsItem } from 'types/newsItem'
 
 export default async function Home() {
   getLatestNewsCachedPreload()
   const topNewsItem: newsItem[] = await getLatestNewsCached()
   return (
-    <div className={'pb-16'}>
+    <div className='pb-16'>
       <ScrollManagement />
       <HeroSection
         newsItem={topNewsItem[0]}

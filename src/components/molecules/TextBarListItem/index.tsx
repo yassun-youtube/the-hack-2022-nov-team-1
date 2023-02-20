@@ -15,10 +15,10 @@ const TextBarListItem = ({ title, publishedAt, isVerticalLine = true, url }: Tex
         isVerticalLine ? 'border-r-[1px] border-r-blue/10' : ''
       } py-14 pr-5`}>
       <Link href={url}>
-        <p className={'mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'}>
+        <p className='mb-3 font-sans font-medium leading-[26px] tracking-[-0.06em] line-clamp-3'>
           {title}
         </p>
-        <span className={'font-robot text-xs font-black leading-4 text-black'}>
+        <span className='font-robot text-xs font-black leading-4 text-black'>
           <TimeAgoText time={publishedAt} />
         </span>
       </Link>

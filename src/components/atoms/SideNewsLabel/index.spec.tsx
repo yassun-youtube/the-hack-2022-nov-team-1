@@ -5,7 +5,7 @@ import SideNewsLabel from '@components/atoms/SideNewsLabel/index'
 
 describe('SideNewsLabel test', () => {
   it('should SideNewsLabel', () => {
-    const { getByText } = render(<SideNewsLabel label={'text'} />)
+    const { getByText } = render(<SideNewsLabel label='text' />)
     expect(getByText('text')).toBeTruthy()
   })
 })

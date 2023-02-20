@@ -11,10 +11,11 @@ import {
   getSpecificNewsPreload,
 } from '@libs/cmsUtils'
 
-type NewsSearchPageProps = {
+export default async function NewsSearchPage({
+  searchParams,
+}: {
   searchParams?: { [key: string]: string | string[] | undefined }
-}
-export default async function NewsSearchPage({ searchParams }: NewsSearchPageProps) {
+}) {
   const keyword =
     searchParams !== undefined && typeof searchParams.q === 'string' ? searchParams.q : ''
   getQueryNewsIdsPreload(keyword)
@@ -22,28 +23,28 @@ export default async function NewsSearchPage({ searchParams }: NewsSearchPagePro
   return (
     <>
       <ScrollManagement />
-      <div className={'mx-10'}>
-        <div className={'my-5'}>
-          <Text textSize={'text-2xl'}>
+      <div className='mx-10'>
+        <div className='my-5'>
+          <Text textSize='text-2xl'>
             <QueryParamText />
           </Text>
-          <div className={'mt-2'} />
+          <div className='mt-2' />
           <Bar />
         </div>
-        <div className={'mb-10 h-[0.5px] w-full bg-gray/50'} />
-        <div className={'flex'}>
-          <div className={'w-[179px]'} />
-          <div className={'flex-col'}>
+        <div className='mb-10 h-[0.5px] w-full bg-gray/50' />
+        <div className='flex'>
+          <div className='w-[179px]' />
+          <div className='flex-col'>
             {filteredNewsIdList.map((item: { id: string }) => (
               <Suspense
                 key={item.id}
-                fallback={<div className={'mb-8 h-64 min-h-fit'} />}>
-                {/* @ts-expect-error Async Server Component */}
+                fallback={<div className='mb-8 h-64 min-h-fit' />}>
+                {/* @ts-expect-error Server Component */}
                 <SearchNewsItem newsId={item.id} />
               </Suspense>
             ))}
           </div>
-          <div className={'w-[348px]'} />
+          <div className='w-[348px]' />
         </div>
       </div>
     </>
@@ -57,7 +58,7 @@ async function SearchNewsItem({ newsId }: { newsId: string }) {
   return (
     <SearchNewsItemContainer
       newsItem={newsItem}
-      prefix={'news'}
+      prefix='news'
     />
   )
 }

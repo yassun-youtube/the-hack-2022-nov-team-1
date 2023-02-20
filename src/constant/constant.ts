@@ -1,4 +1,4 @@
-import { HeaderNavType } from 'types/header'
+import type { HeaderNavType } from 'types/header'
 
 export const LIST_TEXT_ARR = [
   {

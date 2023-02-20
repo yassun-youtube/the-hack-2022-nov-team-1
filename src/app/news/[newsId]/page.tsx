@@ -1,12 +1,8 @@
 import NewsDetailSection from '@components/organisms/NewsDetailSection'
 import { getSpecificNewsCached, getSpecificNewsPreload } from '@libs/cmsUtils'
-import { newsItem } from 'types/newsItem'
+import type { newsItem } from 'types/newsItem'
 
-type NewsDetailPage = {
-  params: { newsId: string }
-}
-
-const NewsDetailPage = async ({ params: { newsId } }: NewsDetailPage) => {
+const NewsDetailPage = async ({ params: { newsId } }: { params: { newsId: string } }) => {
   getSpecificNewsPreload(newsId)
   const newsItem: newsItem = await getSpecificNewsCached(newsId)
   return <NewsDetailSection newsItem={newsItem} />

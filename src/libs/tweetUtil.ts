@@ -1,6 +1,6 @@
 import { cache } from 'react'
 import { twApiBaseUrl } from '../constant/constant'
-import { tweetItem } from 'types/tweetItem'
+import type { tweetItem } from 'types/tweetItem'
 import 'server-only'
 
 export const preloadTweets = (url: string) => {

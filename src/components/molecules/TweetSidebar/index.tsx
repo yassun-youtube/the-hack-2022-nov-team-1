@@ -19,7 +19,7 @@ async function getData(url: string) {
   }
 }
 
-export default function TweetSidebar({ url }: { url: string }) {
+const TweetSidebar = ({ url }: { url: string }) => {
   const tweetItems: string[] = use(fetchData(url))
   return (
     <div className='w-1/5 pl-8 text-xs text-black'>
@@ -27,7 +27,7 @@ export default function TweetSidebar({ url }: { url: string }) {
         return (
           <div
             key={tweetItem}
-            className={'mb-8'}>
+            className='mb-8'>
             <p>{tweetItem}</p>
           </div>
         )
@@ -35,3 +35,5 @@ export default function TweetSidebar({ url }: { url: string }) {
     </div>
   )
 }
+
+export default TweetSidebar

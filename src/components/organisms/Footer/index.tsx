@@ -23,19 +23,19 @@ const Footer = () => {
           />
           <li className='w-[320px]'>
             <FooterNavLabel text='DOWNLOAD APP' />
-            <p className={'mt-0.5 text-sm font-light leading-8 text-white'}>
+            <p className='mt-0.5 text-sm font-light leading-8 text-white'>
               Content with the definitive source for global and local news
             </p>
             <Link
-              href={'https://www.apple.com/app-store/'}
+              href='https://www.apple.com/app-store/'
               className='mt-3 block w-32'
-              aria-label={'app-store'}>
+              aria-label='app-store'>
               <AppleStoreIcon />
             </Link>
             <Link
-              href={'https://play.google.com/store/apps'}
+              href='https://play.google.com/store/apps'
               className='mt-3 block w-32'
-              aria-label={'google-play'}>
+              aria-label='google-play'>
               <GooglePlayIcon />
             </Link>
           </li>
@@ -48,8 +48,8 @@ const Footer = () => {
             <ol className='flex items-center gap-2 pt-2'>
               <li>
                 <Icon
-                  link={'https://www.youtube.com/'}
-                  label={'youtube'}>
+                  link='https://www.youtube.com/'
+                  label='youtube'>
                   <YoutubeIcon
                     width={40}
                     height={40}
@@ -58,8 +58,8 @@ const Footer = () => {
               </li>
               <li>
                 <Icon
-                  link={'https://twitter.com/'}
-                  label={'twitter'}>
+                  link='https://twitter.com/'
+                  label='twitter'>
                   <TwitterIcon
                     width={40}
                     height={40}
@@ -68,8 +68,8 @@ const Footer = () => {
               </li>
               <li>
                 <Icon
-                  link={'https://www.instagram.com/'}
-                  label={'instagram'}>
+                  link='https://www.instagram.com/'
+                  label='instagram'>
                   <InstagramIcon
                     width={40}
                     height={40}
@@ -78,8 +78,8 @@ const Footer = () => {
               </li>
               <li>
                 <Icon
-                  link={'https://facebook.com'}
-                  label={'facebook'}>
+                  link='https://facebook.com'
+                  label='facebook'>
                   <FacebookIcon
                     width={40}
                     height={40}
@@ -100,7 +100,7 @@ const Footer = () => {
             </li>
           ))}
         </ul>
-        <div className={'text-sm text-bright-gray'}>
+        <div className='text-sm text-bright-gray'>
           <span>All contents ©︎ copyright 2022 steadfast news.</span>
           <span>All rights reserved.</span>
         </div>

@@ -7,15 +7,15 @@ type Content = {
   body: string
 }
 
-export const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
+const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
   return (
     <div className='w-4/5'>
       <BlurImage
         imageSrc={imageSrc}
         alt={alt}
       />
-      <div className={'flex'}>
-        <div className={'md:m-24'} />
+      <div className='flex'>
+        <div className='md:m-24' />
         <div
           className='mt-10 text-[14px] leading-[calc(25/14)]'
           dangerouslySetInnerHTML={{
@@ -26,3 +26,5 @@ export const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
     </div>
   )
 }
+
+export default NewsContentContainer

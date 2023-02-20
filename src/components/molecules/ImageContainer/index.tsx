@@ -12,7 +12,7 @@ type ImageContainer = {
 
 const ImageContainer = ({ src, alt, paragraph, url, imageMaxHeight }: ImageContainer) => {
   return (
-    <div className={'flex-col'}>
+    <div className='flex-col'>
       <Link href={url}>
         <BlurImage
           imageSrc={src}

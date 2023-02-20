@@ -1,16 +1,13 @@
 import React from 'react'
-import {
-  FooterNavLabel,
-  FooterNavLinkItem,
-  FooterNavLinkItemType,
-} from '@components/atoms/FooterNav'
+import type { FooterNavLinkItemType } from '@components/atoms/FooterNav'
+import { FooterNavLabel, FooterNavLinkItem } from '@components/atoms/FooterNav'
 
 type LabelList = {
   label: string
   contents: FooterNavLinkItemType[]
 }
 
-export const FooterLabelList = ({ label, contents }: LabelList) => {
+const FooterLabelList = ({ label, contents }: LabelList) => {
   return (
     <li>
       <FooterNavLabel text={label} />
@@ -26,3 +23,5 @@ export const FooterLabelList = ({ label, contents }: LabelList) => {
     </li>
   )
 }
+
+export default FooterLabelList

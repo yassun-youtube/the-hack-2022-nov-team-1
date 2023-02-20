@@ -1,4 +1,4 @@
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import SideNewsLabelComponent from './index'
 
 const meta: Meta<typeof SideNewsLabelComponent> = { component: SideNewsLabelComponent }

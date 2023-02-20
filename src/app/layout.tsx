@@ -22,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <head>
         <title>steadfast-news</title>
       </head>
-      <body className={'text-black'}>
+      <body className='text-black'>
         <Header />
         {children}
         <Footer />
