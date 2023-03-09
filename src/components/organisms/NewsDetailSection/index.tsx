@@ -1,10 +1,8 @@
-import { Suspense } from 'react'
 import Bar from '@components/atoms/Bar'
 import Text from '@components/atoms/Text'
 import TimeAgoText from '@components/atoms/TimeAgoText'
 import Flex from '@components/layout/Flex'
 import NewsContentContainer from '@components/molecules/NewsContentContainer'
-import TweetSidebar from '@components/molecules/TweetSidebar'
 import type { newsItem } from 'types/newsItem'
 
 const NewsDetailSection = ({ newsItem }: { newsItem: newsItem }) => {
@@ -25,9 +23,6 @@ const NewsDetailSection = ({ newsItem }: { newsItem: newsItem }) => {
           alt={newsItem.title}
           body={newsItem.body}
         />
-        <Suspense fallback={<></>}>
-          <TweetSidebar url={newsItem.originalUrl} />
-        </Suspense>
       </Flex>
     </div>
   )
