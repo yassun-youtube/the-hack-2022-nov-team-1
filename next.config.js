@@ -3,7 +3,8 @@ const nextConfig = {
   reactStrictMode: true,
   experimental: {
     appDir: true,
-    fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
+    // TODO: turbopack対応待ち
+    // fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
   },
   async redirects() {
     return [
@@ -19,14 +20,20 @@ const nextConfig = {
       {
         protocol: 'https',
         hostname: 'storage.googleapis.com',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'imageio.forbes.com',
+        port: '',
+        pathname: '/**',
       },
       {
         protocol: 'https',
         hostname: 'www.reuters.com',
+        port: '',
+        pathname: '/**',
       },
     ],
   },

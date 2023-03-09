@@ -9,7 +9,7 @@ import {
   TwitterIcon,
   YoutubeIcon,
 } from '@components/atoms/StoreIcon'
-import { FooterLabelList } from '@components/molecules/FooterLabelList'
+import FooterLabelList from '@components/molecules/FooterLabelList'
 import { FOOTER_NAV, LIST_TEXT_ARR } from 'constant/constant'
 
 const Footer = () => {
