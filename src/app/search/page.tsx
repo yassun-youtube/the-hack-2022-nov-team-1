@@ -3,7 +3,7 @@ import Bar from '@components/atoms/Bar'
 import QueryParamText from '@components/atoms/QueryParamText'
 import Text from '@components/atoms/Text'
 import ScrollManagement from '@components/container/scrollManagement'
-import { SearchNewsItemContainer } from '@components/molecules/SearchNewsItemContainer'
+import SearchNewsItemContainer from '@components/molecules/SearchNewsItemContainer'
 import {
   getQueryNewsIdsCached,
   getQueryNewsIdsPreload,
@@ -14,7 +14,7 @@ import {
 export default async function NewsSearchPage({
   searchParams,
 }: {
-  searchParams?: { [key: string]: string | string[] | undefined }
+  searchParams?: { [_: string]: string | string[] | undefined }
 }) {
   const keyword =
     searchParams !== undefined && typeof searchParams.q === 'string' ? searchParams.q : ''
