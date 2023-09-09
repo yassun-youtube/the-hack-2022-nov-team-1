@@ -1,26 +1,38 @@
-import ScrollManagement from '@components/container/scrollManagement'
 import CategoryNewsSection from '@components/organisms/CategoryNewsSection'
 import HeroSection from '@components/organisms/HeroSection'
 import TextBarSection from '@components/organisms/TextBarSection'
 import { getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
 import { NEWS_CATEGORIES } from 'constant/constant'
+
 import type { newsItem } from 'types/newsItem'
 
-export default async function Home() {
+const getNews = async () => {
   getLatestNewsCachedPreload()
-  const topNewsItem: newsItem[] = await getLatestNewsCached()
+  const topNewsItems: newsItem[] = await getLatestNewsCached()
+
+  const topNewsItem = topNewsItems.at(0)
+  const sideNewsItems = topNewsItems.filter((_, index) => index > 1 && index < 6)
+  const textBarSectionItem = topNewsItems.slice(6)
+  return {
+    sideNewsItems,
+    topNewsItem,
+    textBarSectionItem,
+  }
+}
+
+export default async function Home() {
+  const { textBarSectionItem, topNewsItem, sideNewsItems } = await getNews()
+  if (!topNewsItem) return
   return (
     <div className='pb-16'>
-      <ScrollManagement />
       <HeroSection
-        newsItem={topNewsItem[0]}
-        sideNewsItems={topNewsItem.slice(1, 5)}
+        newsItem={topNewsItem}
+        sideNewsItems={sideNewsItems}
       />
-      <TextBarSection newsItems={topNewsItem.slice(6)} />
+      <TextBarSection newsItems={textBarSectionItem} />
       {NEWS_CATEGORIES.map((category) => {
         return (
           <div key={category}>
-            {/* @ts-expect-error Async Server Component */}
             <CategoryNewsSection categoryName={category} />
           </div>
         )

@@ -1,9 +1,9 @@
 import Bar from '@components/atoms/Bar'
 import Text from '@components/atoms/Text'
-import ScrollManagement from '@components/container/scrollManagement'
 import SearchNewsItemContainer from '@components/molecules/SearchNewsItemContainer'
 import { getCategoryNews, getCategoryNewsPreload } from '@libs/cmsUtils'
 import { NEWS_CATEGORIES } from 'constant/constant'
+
 import type { newsItem } from 'types/newsItem'
 
 type NewsCategoryPage = {
@@ -14,7 +14,6 @@ const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) 
   const categoryNewsList: newsItem[] = await getCategoryNews(categoryName)
   return (
     <div className='mb-8'>
-      <ScrollManagement />
       <div className='mx-10'>
         <div className='my-5'>
           <Text textSize='text-2xl'>{decodeURIComponent(categoryName)}</Text>
