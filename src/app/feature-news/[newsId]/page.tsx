@@ -1,6 +1,7 @@
-import NewsDetailSection from '@components/organisms/NewsDetailSection'
-import { getLatestNewsIds, getSpecificNewsCached } from '@libs/cmsUtils'
-import type { newsItem } from 'types/newsItem'
+import NewsDetailSection from '@/components/organisms/NewsDetailSection'
+import { getLatestNewsIds, getSpecificNewsCached } from '@/libs/cms-utils'
+
+import type { newsItem } from '@/types/news-item'
 
 type NewsDetailPage = {
   params: { newsId: string }

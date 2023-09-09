@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import SideNewsLabel from '@components/atoms/SideNewsLabel'
-import SideNewsText from '@components/atoms/SideNewsText'
+
+import SideNewsLabel from '@/components/atoms/SideNewsLabel'
+import SideNewsText from '@/components/atoms/SideNewsText'
 
 type SideNewsItem = {
   label?: string
@@ -8,7 +9,7 @@ type SideNewsItem = {
   url: string
 }
 
-const SideNewsItem = ({ label = '', text, url }: SideNewsItem) => {
+function SideNewsItem({ label = '', text, url }: SideNewsItem) {
   return (
     <>
       <Link href={url}>

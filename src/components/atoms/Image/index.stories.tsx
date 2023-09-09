@@ -1,5 +1,6 @@
-import type { StoryObj, Meta } from '@storybook/react'
-import ImageComponent from '@components/atoms/Image/index'
+import ImageComponent from '@/components/atoms/Image/index'
+
+import type { Meta, StoryObj } from '@storybook/react'
 
 const meta: Meta<typeof ImageComponent> = { component: ImageComponent }
 export default meta

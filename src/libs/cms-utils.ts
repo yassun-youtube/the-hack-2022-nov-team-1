@@ -1,14 +1,21 @@
-import { cache } from 'react'
-import { cmsBaseUrl, cmsHeader as headers } from 'constant/constant'
 import 'server-only'
+
+import { cache } from 'react'
+
+import { cmsBaseUrl, cmsHeader as headers } from '@/constant/constant'
+import { FETCH_ERROR_MESSAGE } from '@/constant/error-message'
 
 export const getLatestNewsCachedPreload = () => {
   void getLatestNewsCached()
 }
 export const getLatestNewsCached = cache(async () => {
-  const res = await fetch(`${cmsBaseUrl}?limit=12`, { headers, next: { revalidate: 60 } })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  return (await res.json()).contents
+  const res = await fetch(`${cmsBaseUrl}?limit=12`, {
+    headers,
+    next: { revalidate: 60 },
+  })
+  if (!res.ok) throw new Error(FETCH_ERROR_MESSAGE)
+  const data = await res.json()
+  return data.contents
 })
 
 export const getSpecificNewsPreload = (id: string) => {
@@ -18,14 +25,15 @@ export const getSpecificNewsCached = cache(async (id: string) => {
   const res = await fetch(`${cmsBaseUrl}/${id}`, {
     headers,
   })
-  if (!res.ok) throw new Error('Failed to fetch data')
+  if (!res.ok) throw new Error(FETCH_ERROR_MESSAGE)
   return await res.json()
 })
 
 export const getLatestNewsIds = async () => {
   const res = await fetch(`${cmsBaseUrl}?limit=50&fields=id`, { headers })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  return (await res.json()).contents
+  if (!res.ok) throw new Error(FETCH_ERROR_MESSAGE)
+  const data = await res.json()
+  return data.contents
 }
 
 export const getQueryNewsIdsPreload = (keyword: string) => {
@@ -36,8 +44,9 @@ export const getQueryNewsIdsCached = cache(async (keyword: string) => {
     headers,
     cache: 'no-store',
   })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  return (await res.json()).contents
+  if (!res.ok) throw new Error(FETCH_ERROR_MESSAGE)
+  const data = await res.json()
+  return data.contents
 })
 
 export const getCategoryNewsPreload = (categoryName: string) => {
@@ -47,24 +56,33 @@ export const getCategoryNewsPreload = (categoryName: string) => {
 export const getCategoryNews = cache(async (categoryName: string) => {
   let categoryId: string
   switch (categoryName) {
-    case 'business':
+    case 'business': {
       categoryId = 'm9bvtag2xxf'
       break
-    case 'politics':
+    }
+    case 'politics': {
       categoryId = 'zlw1mj8_9ch5'
       break
-    case 'technology':
+    }
+    case 'technology': {
       categoryId = '2jmxkcguh'
       break
-    case 'science':
+    }
+    case 'science': {
       categoryId = 'r_hyy5o7symh'
       break
-    default:
+    }
+    default: {
       categoryId = ''
+    }
   }
-  const res = await fetch(`${cmsBaseUrl}/?filters=category[equals]${categoryId}`, {
-    headers,
-  })
-  if (!res.ok) throw new Error('Failed to fetch data')
-  return (await res.json()).contents
+  const res = await fetch(
+    `${cmsBaseUrl}/?filters=category[equals]${categoryId}`,
+    {
+      headers,
+    },
+  )
+  if (!res.ok) throw new Error(FETCH_ERROR_MESSAGE)
+  const data = await res.json()
+  return data.contents
 })

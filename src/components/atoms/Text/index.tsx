@@ -6,15 +6,16 @@ type TextComponent = {
   children?: React.ReactNode
 }
 
-const Text = ({
+function Text({
   children,
   textColor,
   textSize,
   textFont = 'font-sans',
   fontWight = 'font-bold',
-}: TextComponent) => {
+}: TextComponent) {
   return (
-    <h1 className={`${textFont} ${textSize} ${fontWight} leading-7 tracking-[0.03em] ${textColor}`}>
+    <h1
+      className={`${textFont} ${textSize} ${fontWight} leading-7 tracking-[0.03em] ${textColor}`}>
       {children}
     </h1>
   )

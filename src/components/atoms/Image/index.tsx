@@ -5,7 +5,7 @@ type ImageComponent = {
   alt: string
 }
 
-const ImageComponent = ({ src, alt }: ImageComponent) => {
+function ImageComponent({ src, alt }: ImageComponent) {
   return (
     <Image
       src={src}

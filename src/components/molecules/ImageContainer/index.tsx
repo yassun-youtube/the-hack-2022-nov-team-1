@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import BlurImage from '@components/atoms/BlurImage'
-import ParagraphComponent from '@components/atoms/Paragraph'
+
+import BlurImage from '@/components/atoms/BlurImage'
+import ParagraphComponent from '@/components/atoms/Paragraph'
 
 type ImageContainer = {
   src: string
@@ -10,15 +11,21 @@ type ImageContainer = {
   imageMaxHeight?: number
 }
 
-const ImageContainer = ({ src, alt, paragraph, url, imageMaxHeight }: ImageContainer) => {
+function ImageContainer({
+  src,
+  alt,
+  paragraph,
+  url,
+  imageMaxHeight,
+}: ImageContainer) {
   return (
     <div className='flex-col'>
       <Link href={url}>
         <BlurImage
           imageSrc={src}
           alt={alt}
-          onBlur={false}
           maxHeight={imageMaxHeight}
+          onBlur={false}
         />
       </Link>
       <Link href={url}>

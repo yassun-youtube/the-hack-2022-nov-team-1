@@ -1,11 +1,12 @@
-import TextBarListItem from '@components/molecules/TextBarListItem'
-import type { newsItem } from 'types/newsItem'
+import TextBarListItem from '@/components/molecules/TextBarListItem'
+
+import type { newsItem } from '@/types/news-item'
 
 type TextBarSectionProps = {
   newsItems: newsItem[]
 }
 
-const TextBarSection = ({ newsItems }: TextBarSectionProps) => {
+function TextBarSection({ newsItems }: TextBarSectionProps) {
   return (
     <section className='w-full'>
       <ul className='mx-10 flex justify-evenly border-t-[1px] border-t-blue/10'>

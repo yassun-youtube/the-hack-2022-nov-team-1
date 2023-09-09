@@ -1,15 +1,15 @@
 import { Suspense } from 'react'
 
-import Bar from '@components/atoms/Bar'
-import QueryParamText from '@components/atoms/QueryParamText'
-import Text from '@components/atoms/Text'
-import SearchNewsItemContainer from '@components/molecules/SearchNewsItemContainer'
+import Bar from '@/components/atoms/Bar'
+import QueryParamText from '@/components/atoms/QueryParamText'
+import Text from '@/components/atoms/Text'
+import SearchNewsItemContainer from '@/components/molecules/SearchNewsItemContainer'
 import {
   getQueryNewsIdsCached,
   getQueryNewsIdsPreload,
   getSpecificNewsCached,
   getSpecificNewsPreload,
-} from '@libs/cmsUtils'
+} from '@/libs/cms-utils'
 
 export default async function NewsSearchPage({
   searchParams,
@@ -17,7 +17,9 @@ export default async function NewsSearchPage({
   searchParams?: { [_: string]: string | string[] | undefined }
 }) {
   const keyword =
-    searchParams !== undefined && typeof searchParams.q === 'string' ? searchParams.q : ''
+    searchParams !== undefined && typeof searchParams.q === 'string'
+      ? searchParams.q
+      : ''
   getQueryNewsIdsPreload(keyword)
   const filteredNewsIdList = await getQueryNewsIdsCached(keyword)
   return (

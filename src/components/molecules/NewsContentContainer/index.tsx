@@ -1,5 +1,6 @@
 import sanitizeHtml from 'sanitize-html'
-import BlurImage from '@components/atoms/BlurImage'
+
+import BlurImage from '@/components/atoms/BlurImage'
 
 type Content = {
   imageSrc: string
@@ -7,7 +8,7 @@ type Content = {
   body: string
 }
 
-const NewsContentContainer = ({ imageSrc, alt, body }: Content) => {
+function NewsContentContainer({ imageSrc, alt, body }: Content) {
   return (
     <div className='w-4/5'>
       <BlurImage

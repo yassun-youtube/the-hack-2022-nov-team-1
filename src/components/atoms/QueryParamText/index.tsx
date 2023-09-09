@@ -2,10 +2,16 @@
 
 import { useSearchParams } from 'next/navigation'
 
-const QueryParamText = () => {
-  const searchParam = useSearchParams().get('q')
+function QueryParameterText() {
+  const searchParameter = useSearchParams().get('q')
 
-  return <>{typeof searchParam === 'string' ? decodeURIComponent(searchParam) : ''}</>
+  return (
+    <>
+      {typeof searchParameter === 'string'
+        ? decodeURIComponent(searchParameter)
+        : ''}
+    </>
+  )
 }
 
-export default QueryParamText
+export default QueryParameterText

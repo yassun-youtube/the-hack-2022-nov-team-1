@@ -1,24 +1,28 @@
 import { cache } from 'react'
-import { twApiBaseUrl } from '../constant/constant'
-import type { tweetItem } from 'types/tweetItem'
+
+import { twApiBaseUrl, URL_REGEX } from '@/constant/constant'
+
+import type { tweetItem } from '@/types/tweet-item'
 import 'server-only'
 
 export const preloadTweets = (url: string) => {
   void getTweetsCached(url)
 }
 export const getTweetsCached = cache(async (url: string) => {
-  const res = await fetch(`${twApiBaseUrl}/recent?query=url:"${url}" -is:retweet`, {
-    headers: {
-      Authorization: `Bearer ${process.env.TW_API_KEY}`,
+  const res = await fetch(
+    `${twApiBaseUrl}/recent?query=url:"${url}" -is:retweet`,
+    {
+      headers: {
+        Authorization: `Bearer ${process.env.TW_API_KEY}`,
+      },
+      next: { revalidate: 60 },
     },
-    next: { revalidate: 60 },
-  })
+  )
   if (!res.ok) return []
   const tweetResult = await res.json()
-  const Rexp = /((http|https|ftp):\/\/[\w?=&./-;#~%-]+(?![\w\s?&./;#~%"=-]*>))/g
   if (!tweetResult.meta || tweetResult.meta.result_count === 0) return []
   const tweetTextArray: string[] = tweetResult.data.map((tweet: tweetItem) =>
-    tweet.text.replaceAll(Rexp, '').trim(),
+    tweet.text.replaceAll(URL_REGEX, '').trim(),
   )
 
   const set = new Set(tweetTextArray)

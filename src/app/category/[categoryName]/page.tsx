@@ -1,15 +1,17 @@
-import Bar from '@components/atoms/Bar'
-import Text from '@components/atoms/Text'
-import SearchNewsItemContainer from '@components/molecules/SearchNewsItemContainer'
-import { getCategoryNews, getCategoryNewsPreload } from '@libs/cmsUtils'
-import { NEWS_CATEGORIES } from 'constant/constant'
+import Bar from '@/components/atoms/Bar'
+import Text from '@/components/atoms/Text'
+import SearchNewsItemContainer from '@/components/molecules/SearchNewsItemContainer'
+import { NEWS_CATEGORIES } from '@/constant/constant'
+import { getCategoryNews, getCategoryNewsPreload } from '@/libs/cms-utils'
 
-import type { newsItem } from 'types/newsItem'
+import type { newsItem } from '@/types/news-item'
 
 type NewsCategoryPage = {
   params: { categoryName: string }
 }
-const NewsCategoryPage = async ({ params: { categoryName } }: NewsCategoryPage) => {
+const NewsCategoryPage = async ({
+  params: { categoryName },
+}: NewsCategoryPage) => {
   getCategoryNewsPreload(categoryName)
   const categoryNewsList: newsItem[] = await getCategoryNews(categoryName)
   return (

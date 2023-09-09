@@ -1,6 +1,7 @@
 import Link from 'next/link'
-import { FooterNavLabel } from '@components/atoms/FooterNav'
-import Icon from '@components/atoms/FooterNav/Icon'
+
+import { FooterNavLabel } from '@/components/atoms/FooterNav'
+import Icon from '@/components/atoms/FooterNav/icon'
 import {
   AppleStoreIcon,
   FacebookIcon,
@@ -8,11 +9,11 @@ import {
   InstagramIcon,
   TwitterIcon,
   YoutubeIcon,
-} from '@components/atoms/StoreIcon'
-import FooterLabelList from '@components/molecules/FooterLabelList'
-import { FOOTER_NAV, LIST_TEXT_ARR } from 'constant/constant'
+} from '@/components/atoms/StoreIcon'
+import FooterLabelList from '@/components/molecules/FooterLabelList'
+import { FOOTER_NAV, LIST_TEXT_ARR } from '@/constant/constant'
 
-const Footer = () => {
+function Footer() {
   return (
     <footer className='bg-black p-14'>
       <nav>

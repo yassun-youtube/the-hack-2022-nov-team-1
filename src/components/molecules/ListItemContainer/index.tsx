@@ -1,12 +1,13 @@
 import Link from 'next/link'
-import ListTextComponent from '@components/atoms/ListText'
+
+import ListTextComponent from '@/components/atoms/ListText'
 
 type ListItemContainer = {
   title: string
   url: string
 }
 
-const ListItemContainer = ({ title, url }: ListItemContainer) => {
+function ListItemContainer({ title, url }: ListItemContainer) {
   return (
     <li>
       <Link href={url}>

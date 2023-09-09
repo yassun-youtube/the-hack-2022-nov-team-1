@@ -1,5 +1,6 @@
 import { use } from 'react'
-import { getTweetsCached, preloadTweets } from '@libs/tweetUtil'
+
+import { getTweetsCached, preloadTweets } from '@/libs/tweet-util'
 
 const cache = new Map()
 
@@ -15,11 +16,11 @@ async function getData(url: string) {
     preloadTweets(url)
     return await getTweetsCached(url)
   } else {
-    throw Error('Not implemented')
+    throw new Error('Not implemented')
   }
 }
 
-const TweetSidebar = ({ url }: { url: string }) => {
+function TweetSidebar({ url }: { url: string }) {
   const tweetItems: string[] = use(fetchData(url))
   return (
     <div className='w-1/5 pl-8 text-xs text-black'>

@@ -1,7 +1,10 @@
-import type { Meta, StoryObj } from '@storybook/react'
 import SideNewsLabelComponent from './index'
 
-const meta: Meta<typeof SideNewsLabelComponent> = { component: SideNewsLabelComponent }
+import type { Meta, StoryObj } from '@storybook/react'
+
+const meta: Meta<typeof SideNewsLabelComponent> = {
+  component: SideNewsLabelComponent,
+}
 export default meta
 
 export const Business: StoryObj<typeof SideNewsLabelComponent> = {

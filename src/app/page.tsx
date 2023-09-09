@@ -1,17 +1,22 @@
-import CategoryNewsSection from '@components/organisms/CategoryNewsSection'
-import HeroSection from '@components/organisms/HeroSection'
-import TextBarSection from '@components/organisms/TextBarSection'
-import { getLatestNewsCached, getLatestNewsCachedPreload } from '@libs/cmsUtils'
-import { NEWS_CATEGORIES } from 'constant/constant'
+import CategoryNewsSection from '@/components/organisms/CategoryNewsSection'
+import HeroSection from '@/components/organisms/HeroSection'
+import TextBarSection from '@/components/organisms/TextBarSection'
+import { NEWS_CATEGORIES } from '@/constant/constant'
+import {
+  getLatestNewsCached,
+  getLatestNewsCachedPreload,
+} from '@/libs/cms-utils'
 
-import type { newsItem } from 'types/newsItem'
+import type { newsItem } from '../types/news-item'
 
 const getNews = async () => {
   getLatestNewsCachedPreload()
   const topNewsItems: newsItem[] = await getLatestNewsCached()
 
   const topNewsItem = topNewsItems.at(0)
-  const sideNewsItems = topNewsItems.filter((_, index) => index > 1 && index < 6)
+  const sideNewsItems = topNewsItems.filter(
+    (_, index) => index > 1 && index < 6,
+  )
   const textBarSectionItem = topNewsItems.slice(6)
   return {
     sideNewsItems,
@@ -30,13 +35,11 @@ export default async function Home() {
         sideNewsItems={sideNewsItems}
       />
       <TextBarSection newsItems={textBarSectionItem} />
-      {NEWS_CATEGORIES.map((category) => {
-        return (
-          <div key={category}>
-            <CategoryNewsSection categoryName={category} />
-          </div>
-        )
-      })}
+      {NEWS_CATEGORIES.map((category) => (
+        <div key={category}>
+          <CategoryNewsSection categoryName={category} />
+        </div>
+      ))}
     </div>
   )
 }

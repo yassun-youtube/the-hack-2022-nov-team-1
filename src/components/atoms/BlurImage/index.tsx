@@ -11,9 +11,11 @@ type Content = {
 }
 
 const cn = (isLoading: boolean) =>
-  `object-cover duration-100 ease-in-out ${isLoading ? 'blur-sm' : 'blur-0 grayscale-0'}`
+  `object-cover duration-100 ease-in-out ${
+    isLoading ? 'blur-sm' : 'blur-0 grayscale-0'
+  }`
 
-const BlurImage = ({ imageSrc, alt, onBlur = true, maxHeight = 430 }: Content) => {
+function BlurImage({ imageSrc, alt, onBlur = true, maxHeight = 430 }: Content) {
   const [isLoading, setLoading] = useState(onBlur)
   useEffect(() => {
     cn(isLoading)

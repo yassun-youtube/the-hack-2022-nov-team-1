@@ -1,4 +1,4 @@
-import type { HeaderNavType } from 'types/header'
+import type { HeaderNavType } from '@/types/header'
 
 export const LIST_TEXT_ARR = [
   {
@@ -89,3 +89,6 @@ export const cmsHeader = {
 export const cmsBaseUrl = `https://${process.env.SERVICE_DOMAIN}.microcms.io/api/v1/news`
 
 export const twApiBaseUrl = 'https://api.twitter.com/2/tweets/search'
+
+export const URL_REGEX =
+  /((http|https|ftp):\/\/[\w#%&./-;=?~-]+(?![\s\w"#%&./;=?~-]*>))/g

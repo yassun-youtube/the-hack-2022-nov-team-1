@@ -2,7 +2,11 @@
 
 import { useEffect } from 'react'
 
-export default function FeatureNewsTemplate({ children }: { children: React.ReactNode }) {
+export default function FeatureNewsTemplate({
+  children,
+}: {
+  children: React.ReactNode
+}) {
   useEffect(() => {
     window.scrollTo({ top: 0 })
   }, [])

@@ -1,10 +1,12 @@
 'use client'
 
 import Link from 'next/link'
-import { useScrollStore } from '@store/store'
+
+import { useScrollStore } from '@/store/store'
+
 import type { HeaderNavType } from 'types/header'
 
-const HeaderNavContainer = ({ text, link }: HeaderNavType) => {
+function HeaderNavContainer({ text, link }: HeaderNavType) {
   const { setScrollAmount } = useScrollStore()
 
   const onClickHandler = () => {

@@ -1,11 +1,12 @@
-import Bar from '@components/atoms/Bar'
-import Text from '@components/atoms/Text'
-import TimeAgoText from '@components/atoms/TimeAgoText'
-import Flex from '@components/layout/Flex'
-import NewsContentContainer from '@components/molecules/NewsContentContainer'
-import type { newsItem } from 'types/newsItem'
+import Bar from '@/components/atoms/Bar'
+import Text from '@/components/atoms/Text'
+import TimeAgoText from '@/components/atoms/TimeAgoText'
+import Flex from '@/components/layout/Flex'
+import NewsContentContainer from '@/components/molecules/NewsContentContainer'
 
-const NewsDetailSection = ({ newsItem }: { newsItem: newsItem }) => {
+import type { newsItem } from '@/types/news-item'
+
+function NewsDetailSection({ newsItem }: { newsItem: newsItem }) {
   return (
     <div className='mt-5 px-10 pb-20'>
       <Text textSize='text-2xl'>{newsItem.title}</Text>

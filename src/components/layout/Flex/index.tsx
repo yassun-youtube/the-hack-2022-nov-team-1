@@ -1,4 +1,4 @@
-const Flex = ({
+function Flex({
   children,
   alignItem,
   justifyContent,
@@ -6,9 +6,12 @@ const Flex = ({
   children: React.ReactNode
   alignItem?: string
   justifyContent?: string
-}) => {
+}) {
   return (
-    <div className={`flex ${'align-' + alignItem} ${'justify' + justifyContent}`}>{children}</div>
+    <div
+      className={`flex ${'align-' + alignItem} ${'justify' + justifyContent}`}>
+      {children}
+    </div>
   )
 }
 

@@ -1,13 +1,16 @@
-import ImageContainer from '@components/molecules/ImageContainer'
-import ListItemContainer from '@components/molecules/ListItemContainer'
-import { getCategoryNews } from '@libs/cmsUtils'
-import type { newsItem } from 'types/newsItem'
+import ImageContainer from '@/components/molecules/ImageContainer'
+import ListItemContainer from '@/components/molecules/ListItemContainer'
+import { getCategoryNews } from '@/libs/cms-utils'
+
+import type { newsItem } from '@/types/news-item'
 
 type TopPageNewsSectionProps = {
   categoryName: string
 }
 
-const CategoryNewsSection = async ({ categoryName }: TopPageNewsSectionProps) => {
+const CategoryNewsSection = async ({
+  categoryName,
+}: TopPageNewsSectionProps) => {
   const categoryNewsItems: newsItem[] = await getCategoryNews(categoryName)
 
   return (

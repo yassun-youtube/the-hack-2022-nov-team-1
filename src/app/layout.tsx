@@ -1,6 +1,8 @@
+'use client'
+
 import '../styles/dist.css'
-import Footer from '@components/organisms/Footer'
-import Header from '@components/organisms/Header'
+import Footer from '@/components/organisms/Footer'
+import Header from '@/components/organisms/Header'
 
 // TODO:turbopack next/font 対応待ち
 // const roboto = Roboto({
@@ -8,7 +10,12 @@ import Header from '@components/organisms/Header'
 //   weight: '100',
 // })
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  // const level = useContext(LevelContext)
   return (
     <html
       lang='en'

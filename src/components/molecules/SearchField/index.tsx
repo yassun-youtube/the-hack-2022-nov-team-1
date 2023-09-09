@@ -1,12 +1,15 @@
 'use client'
 
-import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
 import { useRouter } from 'next/navigation'
-import type { FormEvent } from 'react'
 import { useRef } from 'react'
-import { useScrollStore } from '@store/store'
 
-const SearchField = () => {
+import { MagnifyingGlassIcon } from '@heroicons/react/24/outline'
+
+import { useScrollStore } from '@/store/store'
+
+import type { FormEvent } from 'react'
+
+function SearchField() {
   const formRef = useRef<HTMLFormElement>(null)
   const inputRef = useRef<HTMLInputElement>(null)
   const router = useRouter()
@@ -35,8 +38,8 @@ const SearchField = () => {
         placeholder='searchInput'
         type='search'
         className='z-10 float-right h-9 w-9 cursor-pointer bg-gray/0 outline-none transition-all duration-200 ease-out placeholder:text-transparent focus:w-56 focus:cursor-text focus:pl-10 focus:pr-4 focus:ease-out'
-        onBlur={() => formRef.current?.reset()}
         ref={inputRef}
+        onBlur={() => formRef.current?.reset()}
       />
     </form>
   )
