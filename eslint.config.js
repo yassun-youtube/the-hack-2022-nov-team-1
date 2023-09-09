@@ -1,16 +1,26 @@
+const comments = require('@eslint-community/eslint-plugin-eslint-comments')
 const next = require('@next/eslint-plugin-next')
 const tsPlugin = require('@typescript-eslint/eslint-plugin')
 const tsParser = require('@typescript-eslint/parser')
 const prettier = require('eslint-config-prettier')
+const arrayFunc = require('eslint-plugin-array-func')
 const cypress = require('eslint-plugin-cypress')
 const importPlugin = require('eslint-plugin-import')
+const noUnSanitized = require('eslint-plugin-no-unsanitized')
+const regex = require('eslint-plugin-optimize-regex')
+const promise = require('eslint-plugin-promise')
 const reactPlugin = require('eslint-plugin-react')
 const reactHooks = require('eslint-plugin-react-hooks')
+const security = require('eslint-plugin-security')
+const sonarjs = require('eslint-plugin-sonarjs')
 const storybook = require('eslint-plugin-storybook')
 const tailwindcss = require('eslint-plugin-tailwindcss')
 const trim = require('eslint-plugin-trim')
+const unicorn = require('eslint-plugin-unicorn')
+const xss = require('eslint-plugin-xss')
 const globals = require('globals')
 
+const { rules: sonarjsRules } = sonarjs.configs.recommended
 const { overrides: tsPluginRecommendedRules } =
   tsPlugin.configs['eslint-recommended']
 const { rules: tsPluginRules } = tsPlugin.configs.recommended
@@ -96,10 +106,6 @@ module.exports = [
       'import/parsers': {
         '@typescript-eslint/parser': ['.ts', '.tsx'],
       },
-      'import/resolver': {
-        node: true,
-        typescript: true,
-      },
     },
   },
   // Tailwindcss configs
@@ -107,7 +113,7 @@ module.exports = [
     files,
     plugins: { tailwindcss },
     rules: {
-      ...tailwindcss.configs['recommended'].rules,
+      ...tailwindcss.configs.recommended.rules,
       'tailwindcss/no-custom-classname': 'error',
     },
   },
@@ -121,6 +127,7 @@ module.exports = [
     },
     settings: {
       'import/resolver': {
+        node: true,
         typescript: {
           alwaysTryTypes: true,
           project: './tsconfig.json',
@@ -196,7 +203,7 @@ module.exports = [
       'import/prefer-default-export': 'off',
     },
   },
-  // Other configs
+  // ClassName Trim configs
   {
     files,
     plugins: { trim },
@@ -228,6 +235,75 @@ module.exports = [
     files: storybookFiles,
     plugins: { storybook },
     rules: { ...storybookRules },
+  },
+  // Sonarjs configs
+  {
+    files,
+    plugins: { sonarjs },
+    rules: { ...sonarjsRules },
+  },
+  // Unicorn configs
+  {
+    files,
+    plugins: { unicorn },
+    rules: {
+      ...unicorn.configs.recommended.rules,
+      'unicorn/no-array-for-each': 'off',
+      'unicorn/no-fn-reference-in-iterator': 'off',
+      'unicorn/no-reduce': 'off',
+      'unicorn/no-null': 'off',
+      'unicorn/prefer-number-properties': 'off',
+      'unicorn/prefer-optional-catch-binding': 'off',
+      'unicorn/prevent-abbreviations': 'off',
+      'unicorn/prefer-module': 'off',
+    },
+    ignores: ['eslint.config.js'],
+  },
+  // array-func configs
+  {
+    files,
+    plugins: { 'array-func': arrayFunc },
+    rules: {
+      ...arrayFunc.configs.recommended.rules,
+      'array-func/prefer-array-from': 'off',
+    },
+  },
+  // comments configs
+  {
+    files,
+    plugins: { '@eslint-community/eslint-comments': comments },
+    rules: { ...comments.configs.recommended.rules },
+  },
+  // regex configs
+  {
+    files,
+    plugins: { 'optimize-regex': regex },
+    rules: { ...regex.configs.recommended.rules },
+  },
+  // promise configs
+  {
+    files,
+    plugins: { promise },
+    rules: { ...promise.configs.recommended.rules },
+  },
+  // no-unsanitized configs
+  {
+    files,
+    plugins: { 'no-unsanitized': noUnSanitized },
+    rules: { ...noUnSanitized.configs.DOM.rules },
+  },
+  // security configs
+  {
+    files,
+    plugins: { security },
+    rules: { ...security.configs.recommended.rules },
+  },
+  // xss configs
+  {
+    files,
+    plugins: { xss },
+    rules: { ...xss.configs.recommended.rules },
+    ignores: ['jest.config.ts'],
   },
   // Global configs
   {
