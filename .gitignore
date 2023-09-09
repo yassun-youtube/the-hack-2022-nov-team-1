@@ -43,3 +43,6 @@ next-env.d.ts
 /src/test/videos/
 /src/test/fixtures/
 /src/test/screenshots/
+
+# eslint
+.eslintcache

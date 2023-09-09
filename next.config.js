@@ -2,7 +2,6 @@
 const nextConfig = {
   reactStrictMode: true,
   experimental: {
-    appDir: true,
     // TODO: turbopack対応待ち
     // fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
   },
