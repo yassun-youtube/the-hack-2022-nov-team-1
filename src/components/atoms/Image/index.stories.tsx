@@ -1,4 +1,4 @@
-import ImageComponent from '@/components/atoms/Image/index'
+import ImageComponent from '.'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

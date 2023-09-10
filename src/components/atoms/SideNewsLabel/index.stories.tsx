@@ -1,4 +1,4 @@
-import SideNewsLabelComponent from './index'
+import SideNewsLabelComponent from '.'
 
 import type { Meta, StoryObj } from '@storybook/react'
 

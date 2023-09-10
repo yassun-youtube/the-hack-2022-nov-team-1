@@ -1,54 +1,71 @@
+import NextImage from 'next/image'
+
+import { withThemeByClassName } from '@storybook/addon-styling'
 import { INITIAL_VIEWPORTS } from '@storybook/addon-viewport'
-import { themes } from '@storybook/theming'
-import '../src/styles/dist.css'
-import { ImageProps } from 'next/dist/client/image'
-import { RouterContext } from 'next/dist/shared/lib/router-context'
-import * as NextImage from 'next/image'
-const OriginalNextImage = NextImage.default
+import { initialize, mswDecorator } from 'msw-storybook-addon'
+
+import type { Preview } from '@storybook/react'
+import type { ImageProps } from 'next/image'
+
+import '../src/styles/globals.css'
+
+initialize()
+const preview: Preview = {
+  decorators: [
+    mswDecorator,
+    withThemeByClassName({
+      themes: {
+        light: 'light',
+        dark: 'dark',
+      },
+      defaultTheme: 'light',
+    }),
+  ],
+  parameters: {
+    actions: { argTypesRegex: '^on[A-Z].*' },
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/,
+      },
+    },
+    nextjs: {
+      router: {
+        basePath: '',
+      },
+    },
+    layout: 'centered',
+    viewport: {
+      viewports: INITIAL_VIEWPORTS,
+    },
+    backgrounds: {
+      default: 'white',
+      values: [
+        {
+          name: 'white',
+          value: '#fff',
+        },
+        {
+          name: 'black',
+          value: '#000',
+        },
+        {
+          name: 'gray',
+          value: '#f3f4f6',
+        },
+      ],
+    },
+  },
+}
+
 Object.defineProperty(NextImage, 'default', {
   configurable: true,
   value: (props: ImageProps) => (
-    <OriginalNextImage
+    <NextImage
       {...props}
       unoptimized
     />
   ),
 })
 
-export const parameters = {
-  actions: { argTypesRegex: '^on[A-Z].*' },
-  controls: {
-    matchers: {
-      color: /(background|color)$/i,
-      date: /Date$/,
-    },
-  },
-  darkMode: {
-    dark: { ...themes.dark, appBg: 'black' },
-    light: { ...themes.normal, appBg: 'white' },
-  },
-  layout: 'centered',
-  viewport: {
-    viewports: INITIAL_VIEWPORTS,
-  },
-  backgrounds: {
-    default: 'white',
-    values: [
-      {
-        name: 'white',
-        value: '#fff',
-      },
-      {
-        name: 'black',
-        value: '#000',
-      },
-      {
-        name: 'gray',
-        value: '#f3f4f6',
-      },
-    ],
-  },
-  nextRouter: {
-    Provider: RouterContext.Provider,
-  },
-}
+export default preview
