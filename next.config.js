@@ -1,10 +1,8 @@
+const { withSentryConfig } = require('@sentry/nextjs')
+
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  experimental: {
-    // TODO: turbopack対応待ち
-    // fontLoaders: [{ loader: '@next/font/google', options: { subsets: ['latin'] } }],
-  },
   async redirects() {
     return [
       {
@@ -43,4 +41,12 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig
+/** @type {import('@sentry/nextjs').SentryWebpackPluginOptions} */
+const sentryWebpackPluginOptions = {
+  org: 'marvel-5b01af876',
+  project: 'javascript-nextjs',
+  authToken: process.env.SENTRY_AUTH_TOKEN,
+  silent: true,
+}
+
+module.exports = withSentryConfig(nextConfig, sentryWebpackPluginOptions)

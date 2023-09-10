@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "dev:turbo": "concurrently \"next dev --turbo\" \"tailwindcss -i src/styles/globals.css -o src/styles/dist.css -w\"",
+    "dev:turbo": "next dev --turbo",
     "build": "tailwindcss -m -i src/styles/globals.css -o src/styles/dist.css && next build",
     "start": "next start",
     "lint": "eslint --cache src",
@@ -21,6 +21,7 @@
     "preinstall": "npx only-allow pnpm"
   },
   "dependencies": {
+    "@sentry/nextjs": "^7.68.0",
     "next": "13.4.19",
     "react": "18.2.0",
     "react-dom": "18.2.0",
@@ -119,7 +120,6 @@
     },
     "peerDependencyRules": {
       "allowAny": [
-        "vite",
         "cypress"
       ]
     }
