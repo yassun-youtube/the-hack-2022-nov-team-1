@@ -7,7 +7,7 @@ import {
   getLatestNewsCachedPreload,
 } from '@/libs/cms-utils'
 
-import type { newsItem } from '../types/news-item'
+import type { newsItem } from '@/types/news-item'
 
 const getNews = async () => {
   getLatestNewsCachedPreload()

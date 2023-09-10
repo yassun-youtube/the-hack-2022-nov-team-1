@@ -19,6 +19,8 @@ const trim = require('eslint-plugin-trim')
 const unicorn = require('eslint-plugin-unicorn')
 const xss = require('eslint-plugin-xss')
 const globals = require('globals')
+const importAlias = require('eslint-plugin-no-relative-import-paths')
+const { resolve } = require('path')
 
 const { rules: sonarjsRules } = sonarjs.configs.recommended
 const { overrides: tsPluginRecommendedRules } =
@@ -26,7 +28,7 @@ const { overrides: tsPluginRecommendedRules } =
 const { rules: tsPluginRules } = tsPlugin.configs.recommended
 const { files: storybookFiles, rules: storybookRules } =
   storybook.configs.recommended.overrides.at(0)
-const files = ['**/*.{js,cjs,mjs,jsx,ts,cts,mts,tsx}']
+const files = ['**/*.{ts,tsx,js,cjs,mjs,jsx,cts,mts}']
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
@@ -130,7 +132,7 @@ module.exports = [
         node: true,
         typescript: {
           alwaysTryTypes: true,
-          project: './tsconfig.json',
+          project: resolve(__dirname, '../../../tsconfig.json'),
         },
       },
       react: {
@@ -149,6 +151,7 @@ module.exports = [
     files,
     plugins: {
       import: importPlugin,
+      'no-relative-import-paths': importAlias,
     },
     rules: {
       'import/no-unresolved': 'error',
@@ -193,6 +196,10 @@ module.exports = [
           },
           'newlines-between': 'always',
         },
+      ],
+      'no-relative-import-paths/no-relative-import-paths': [
+        'error',
+        { allowSameFolder: true, rootDir: 'src', prefix: '@' },
       ],
     },
   },
